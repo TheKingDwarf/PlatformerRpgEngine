@@ -27,10 +27,10 @@ global.inputUp = true;
 global.inputDown  = true;
 }
 
-if (gamepad_button_check_pressed(0,inputKB1)) global.inputKB1 = true;
-if (gamepad_button_check_pressed(0,inputKB2)) global.inputKB2 = true;
-if (gamepad_button_check_pressed(0,inputKB3)) global.inputKB3 = true;
-if (gamepad_button_check_pressed(0,inputKB4)) global.inputKB4 = true;
+if (gamepad_button_check_pressed(0,inputKB1))inputKB1 = true;
+if (gamepad_button_check_pressed(0,inputKB2)) inputKB2 = true;
+if (gamepad_button_check_pressed(0,inputKB3))inputKB3 = true;
+if (gamepad_button_check_pressed(0,inputKB4))inputKB4 = true;
 
 } else {
 var inputRight = ord("D");	
@@ -43,15 +43,17 @@ var inputKB2   = vk_left ;
 var inputKB3   = vk_right;
 var inputKB4   = vk_down ;
 
-if (inputRight) global.inputRight = true;
-if (inputLeft) global.inputLeft = true;	
-if (inputUp) global.inputUp = true;
-if (inputDown) global.inputDown = true;
+if (inputRight) inputRight = true;
+if (inputLeft) inputLeft = true;	
+if (inputUp) inputUp = true;
+if (inputDown) inputDown = true;
 
-if (inputKB1) global.inputKB1 = true;
-if (inputKB2) global.inputKB2 = true;
-if (inputKB3) global.inputKB3 = true;
-if (inputKB4) global.inputKB4 = true;
+if (inputKB1)inputKB1 = true;
+if (inputKB2)inputKB2 = true;
+if (inputKB3)inputKB3 = true;
+if (inputKB4)inputKB4 = true;
 }
+
+
 
 
