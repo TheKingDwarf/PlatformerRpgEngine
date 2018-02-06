@@ -36,101 +36,99 @@ if (!obj_gameController.paused) { // if game isnt paused
 	
 	
 	
-	#region idle
-	if (state = playerStates.idle) {
-			
-		
-		
-	}
-	#endregion
-	
-	#region run
+	#region state = run
 	if (state = playerStates.run) {
-		canCast = true;
-		if (instance_place(x,y+1,obj_solid)) {
-		
-		
-			if (global.inputRight) {
-				if (hspd < maxHspd) hspd += accel;	
-				image_xscale = 1;
-			} else if (global.inputLeft) {
-				if (hspd > -maxHspd) hspd -= accel;
-				image_xscale = -1;	
-			}
-		
-			if (instance_place(x,y+1,obj_one_way_platform) and global.inputDown) {
-				vspd = -1;
-				state = playerStates.falling;
-			}
-		
-		}
-		
-		if (global.inputSpace) {
-			jumping = true;	
+	// Input //////////////////////////////////////////////////////////////////////
+		scr_input();
+// Movement ///////////////////////////////////////////////////////////////////
+
+		// Apply the correct form of acceleration and friction
+		if (onGround) {
+		    tempAccel = groundAccel;
+		    tempFric  = groundFric;
 		} else {
-			jumping = false;
+		    tempAccel = airAccel;
+		    tempFric  = airFric;
 		}
-		
-		if (jumping && vspd < maxVspd) {
-			vspd+= jumpAccel;
-		} else {
-			if (!place_meeting(x,y+1,obj_solid)) state = playerStates.falling;	
+
+		// Reset wall cling
+		if ((!cRight && !cLeft) || onGround) {
+		    canStick = true;
+		    sticking = false;
+		}   
+
+		// Cling to wall
+		if (((kRight && cLeft) || (kLeft && cRight)) && canStick && !onGround) {
+		    alarm[0] = clingTime;
+		    sticking = true; 
+		    canStick = false;       
 		}
-		
-		
-		
+
+		// Handle gravity
+		if (!onGround) {
+		    if ((cLeft || cRight) && vy >= 0) {
+		        // Wall slide
+		        vy = Approach(vy, vyMax, gravSlide);
+		    } else {
+		        // Fall normally
+		        vy = Approach(vy, vyMax, gravNorm);
+		    }
+		}
+
+		// Left 
+		if (kLeft && !kRight && !sticking) {
+		    // Apply acceleration left
+		    if (vx > 0)
+		        vx = Approach(vx, 0, tempFric);   
+		    vx = Approach(vx, -vxMax, tempAccel);
+		}
+
+		// Right 
+		if (kRight && !kLeft && !sticking) {
+		    // Apply acceleration right
+		    if (vx < 0)
+		        vx = Approach(vx, 0, tempFric);   
+		    vx = Approach(vx, vxMax, tempAccel);
+		}
+
+		// Friction
+		if (!kRight && !kLeft)
+		    vx = Approach(vx, 0, tempFric); 
+        
+		// Wall jump
+		if (kJump && cLeft && !onGround) {
+		    if (kLeft) {
+		        vy = -jumpHeight * 1.1;
+		        vx =  jumpHeight * .75;
+		    } else {
+		        vy = -jumpHeight * 1.1;
+		        vx =  vxMax;
+		    }  
+		}
+
+		if (kJump && cRight && !onGround) {
+		    if (kRight) {
+		        vy = -jumpHeight * 1.1;
+		        vx = -jumpHeight * .75;
+		    } else {
+		        vy = -jumpHeight * 1.1;
+		        vx = -vxMax;
+		    }  
+		}
+ 
+		// Jump 
+		if (kJump) { 
+		    if (onGround)
+		        vy = -jumpHeight;
+		    // Variable jumping
+		} else if (kJumpRelease) { 
+		    if (vy < 0)
+		        vy *= 0.25;
+		}	
+	
+	
+	
 	}
-	
-	#endregion
-	
-	#region falling
-	if (state = playerStates.falling) {
-		canCast = false;
-		if (vspd > -maxHspd) vspd -= grav;
-		
-		if (global.inputRight) {
-				if (hspd < maxHspd) hspd += accel;	
-				image_xscale = 1;
-			} else if (global.inputLeft) {
-				if (hspd > -maxHspd) hspd -= accel;
-				image_xscale = -1;	
-		}
-	
-	}
-	#endregion
-	
-	#region casting
-	if (state = playerStates.casting) {
-		
-		
-	}
-	
-	#endregion
-	
-	#region frozen
-	if (state = playerStates.frozen) {
-	
-	}
-	#endregion
-	
-	#region apply hspd vspd and knockback
-		var _xx_move = floor(hspd+knockback);
-		var _yy_move = floor(vspd+(knockback/4));
-		var _xx_sign = sign(_xx_move);
-		var _yy_sign = sign(_yy_move);
-		
-		var _xx_move =abs(_xx_move );
-		var _yy_move =abs(_yy_move );
-		
-		
-		for (var i = 0; i < _xx_move; i++) {
-			if (!instance_place(x+_xx_sign,y,obj_solid)) x += _xx_sign;
-		}
-		
-		for (var k = 0; k < _yy_move; k++) {
-			if (!instance_place(x,y+_yy_sign,obj_solid))y += _yy_sign;	
-		}
-		knockback = 0;
 	#endregion
 	
 	

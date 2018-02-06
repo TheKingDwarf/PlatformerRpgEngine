@@ -1,5 +1,6 @@
 //draw self and arms
-
+draw_self();
+/*
 var _sprite = state;
 var armNumber = 1;
 if (state = playerStates.casting) var armNumber = spell;

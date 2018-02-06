@@ -1,9 +1,7 @@
 //init
 #region initializing sprite array and enums
 enum playerStates {
-	idle,
 	run,
-	falling,
 	casting,
 	frozen,
 	talking
@@ -24,7 +22,7 @@ enum spells {
 	pull = 100100	
 }
 
-enum armor {
+enum armorSets {
 	defaultArmor = 1, // starter
 	enchantArmor = 1.5,//purchase at shops
 	vikingArmor = 2, // get after defeating a viking lord
@@ -35,44 +33,58 @@ enum armor {
 }
 
 //sprite_array
-sprite[playerStates.idle,0] = spr_player_run;//spr_player_idle
-sprite[playerStates.idle,1] = spr_arms_idle;
-sprite[playerStates.run,0] = spr_player_run;
-sprite[playerStates.run,1] = spr_arms_run;
-sprite[playerStates.falling,0] = spr_player_falling;
-sprite[playerStates.falling,1] = spr_arms_falling;
-sprite[playerStates.casting,0] = spr_player_casting;
+//sprite[playerStates.idle,0] = spr_player_run;//spr_player_idle
+//sprite[playerStates.idle,1] = //spr_arms_idle;
+//sprite[playerStates.run,0] = spr_player_run;
+//sprite[playerStates.run,1] = //spr_arms_run;
+//sprite[playerStates.falling,0] = //spr_player_falling;
+//sprite[playerStates.falling,1] = //spr_arms_falling;
+//sprite[playerStates.casting,0] = spr_player_casting;
 
-//magic sprites
-sprite[playerStates.casting,spells.destruction] = spr_arms_destruction;
-sprite[playerStates.casting,spells.nature] = spr_arms_nature;
-sprite[playerStates.casting,spells.void] = spr_arms_void;
-sprite[playerStates.casting,spells.freeze] = spr_arms_freeze;
-sprite[playerStates.casting,spells.pushSpirit] = spr_arms_pushSpirit;
-sprite[playerStates.casting,spells.vines] = spr_arms_vines;
-sprite[playerStates.casting,spells.swarm] = spr_arms_swarm;
-sprite[playerStates.casting,spells.pull] = spr_arms_pull;
-sprite[playerStates.casting,spells.necromancy] = spr_arms_necromancy;
-sprite[playerStates.casting,spells.bendSpace] = spr_arms_bendSpace;
-sprite[playerStates.casting,spells.fireball] = spr_arms_fireball;
-sprite[playerStates.casting,spells.lightning] = spr_arms_lighting;
+////magic sprites
+//sprite[playerStates.casting,spells.destruction] = spr_arms_destruction;
+//sprite[playerStates.casting,spells.nature] = spr_arms_nature;
+//sprite[playerStates.casting,spells.void] = spr_arms_void;
+//sprite[playerStates.casting,spells.freeze] = spr_arms_freeze;
+//sprite[playerStates.casting,spells.pushSpirit] = spr_arms_pushSpirit;
+//sprite[playerStates.casting,spells.vines] = spr_arms_vines;
+//sprite[playerStates.casting,spells.swarm] = spr_arms_swarm;
+//sprite[playerStates.casting,spells.pull] = spr_arms_pull;
+//sprite[playerStates.casting,spells.necromancy] = spr_arms_necromancy;
+//sprite[playerStates.casting,spells.bendSpace] = spr_arms_bendSpace;
+//sprite[playerStates.casting,spells.fireball] = spr_arms_fireball;
+//sprite[playerStates.casting,spells.lightning] = spr_arms_lighting;
 #endregion
 //movement values
-accel = 0.5;
-decel = 1;
-grav = 0.2;
+// Inherit oParEntity variables
+event_inherited();
 
-jumpAccel = 1.5;
 
-jumping = false;
+// Movement ///////////////////////////////////////////////////////////////////
 
-maxHspd = 3;
-maxVspd = 9;
+// Multiplier
+m = 1.0;
 
-hspd = 0;
-vspd = 0;
+groundAccel = 1.0  * m;
+groundFric  = 1.9  * m;
+airAccel    = 0.75 * m;
+airFric     = 0.1  * m;
+vxMax       = 6.5  * m;
+vyMax       = 10.0 * m;
+jumpHeight  = 8.0  * m;
+gravNorm    = 0.5  * m;
+gravSlide   = 0.25 * m; 
 
-facing = image_xscale;
+clingTime   = 4.0 * m;
+
+// Misc ///////////////////////////////////////////////////////////////////////
+
+// Relative collision checks
+cLeft  = place_meeting(x - 1, y, oParSolid);
+cRight = place_meeting(x + 1, y, oParSolid);
+
+// Common calculation
+sqrt2 = sqrt(2);
 
 //spells and states
 
@@ -82,7 +94,7 @@ xp = 0; //experience
 hp = 10;//health
 maxHp = 10;
 
-armor = 1;//armor
+armor = armorSets.defaultArmor;//armor
 
 coins = 0;//money
 
