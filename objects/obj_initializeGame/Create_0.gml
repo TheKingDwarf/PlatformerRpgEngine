@@ -1,5 +1,5 @@
 /// @description Initalize Game
-
+room_goto_next();
 //load save file
 
 
