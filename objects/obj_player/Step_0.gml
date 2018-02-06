@@ -1,5 +1,20 @@
 //check for paused
+		
+	// Input //////////////////////////////////////////////////////////////////////
+		var kLeft, kRight, kUp, kDown, kJump, kJumpRelease, tempAccel, tempFric, kBut1, kBut2, kBut3, kBut4;
+var gamepadThreshold = .3;
+kLeft        = keyboard_check(ord("A")) or (gamepad_axis_value(0,gp_axislh)<-gamepadThreshold);
+kRight       = keyboard_check(ord("D")) or (gamepad_axis_value(0,gp_axislh)> gamepadThreshold);
+kUp          = keyboard_check(ord("W")) or (gamepad_axis_value(0,gp_axislv)<-gamepadThreshold);
+kDown        = keyboard_check(ord("S")) or (gamepad_axis_value(0,gp_axislv)> gamepadThreshold);
 
+kJump        =  keyboard_check_pressed(vk_space) or gamepad_button_check_pressed(0,gp_face1);
+kJumpRelease = keyboard_check_released(vk_space)or gamepad_button_check_released(0,gp_face1);
+
+kBut1		 = mouse_check_button(mb_left) or gamepad_button_check(0,gp_shoulderrb);
+kBut2		 = keyboard_check(ord("1")) or gamepad_button_check(0, gp_face2);
+kBut3		 = keyboard_check(ord("2")) or gamepad_button_check(0, gp_face3);
+kBut4		 = keyboard_check(ord("3")) or gamepad_button_check(0, gp_face4);
 if (!obj_gameController.paused) { // if game isnt paused
 	
 	
@@ -38,15 +53,18 @@ if (!obj_gameController.paused) { // if game isnt paused
 	
 	#region state = run
 	if (state = playerStates.run) {
-	// Input //////////////////////////////////////////////////////////////////////
-		scr_input();
-// Movement ///////////////////////////////////////////////////////////////////
 
+// Movement ///////////////////////////////////////////////////////////////////
+//update
+		cLeft  = place_meeting(x - 1, y, obj_solid);
+		cRight = place_meeting(x + 1, y, obj_solid);
 		// Apply the correct form of acceleration and friction
 		if (onGround) {
 		    tempAccel = groundAccel;
 		    tempFric  = groundFric;
+			canCast = true;
 		} else {
+			canCast = false;
 		    tempAccel = airAccel;
 		    tempFric  = airFric;
 		}
@@ -131,5 +149,13 @@ if (!obj_gameController.paused) { // if game isnt paused
 	}
 	#endregion
 	
+	#region state = casting
+	if (canCast and kBut1) state = playerStates.casting;
 	
+	if (state = playerStates.casting) {
+		
+		
+	}
+	
+	#endregion
 }

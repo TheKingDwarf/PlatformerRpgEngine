@@ -1,7 +1,9 @@
 /// @description 
 // Vertical
+vx += knockback;
+vy -= knockback/4;
 repeat(abs(vy)) {
-    if (!place_meeting(x, y + sign(vy), oParSolid))
+    if (!place_meeting(x, y + sign(vy), obj_solid))
         y += sign(vy); 
     else {
         vy = 0;
@@ -11,7 +13,7 @@ repeat(abs(vy)) {
 
 // Horizontal
 repeat(abs(vx)) {
-    if (!place_meeting(x + sign(vx), y, oParSolid))
+    if (!place_meeting(x + sign(vx), y, obj_solid))
         x += sign(vx); 
     else {
         vx = 0;
