@@ -1,6 +1,16 @@
 //global input script. gets the basic inputs that game objects might need. Additional inputs should be created
 // in the object that needs them.
 
+global.inputRight = false;
+global.inputLeft = false;	
+global.inputUp = false;
+global.inputDown = false;
+
+global.inputKB1 = false;
+global.inputKB2 = false;
+global.inputKB3 = false;
+global.inputKB4 = false;
+
 if (gamepad_is_connected(0)){
 var inputRight = .5       ;
 var inputLeft  = -.5      ;	
@@ -26,11 +36,11 @@ global.inputUp = true;
 } else if (axis_value_H <= inputDown) {
 global.inputDown  = true;
 }
-
-if (gamepad_button_check_pressed(0,inputKB1))inputKB1 = true;
-if (gamepad_button_check_pressed(0,inputKB2)) inputKB2 = true;
-if (gamepad_button_check_pressed(0,inputKB3))inputKB3 = true;
-if (gamepad_button_check_pressed(0,inputKB4))inputKB4 = true;
+if (gamepad_button_check(0,inputSpace))global.inputSpace = true;
+if (gamepad_button_check(0,inputKB1))global.inputKB1 = true;
+if (gamepad_button_check(0,inputKB2)) global.inputKB2 = true;
+if (gamepad_button_check(0,inputKB3))global.inputKB3 = true;
+if (gamepad_button_check(0,inputKB4))global.inputKB4 = true;
 
 } else {
 var inputRight = ord("D");	
@@ -43,15 +53,16 @@ var inputKB2   = vk_left ;
 var inputKB3   = vk_right;
 var inputKB4   = vk_down ;
 
-if (inputRight) inputRight = true;
-if (inputLeft) inputLeft = true;	
-if (inputUp) inputUp = true;
-if (inputDown) inputDown = true;
+if (keyboard_check(inputRight)) global.inputRight = true;
+if (keyboard_check(inputLeft)) global.inputLeft = true;	
+if (keyboard_check(inputUp)) global.inputUp = true;
+if (keyboard_check(inputDown)) global.inputDown = true;
+if (keyboard_check(inputSpace)) global.inputSpace = true;
 
-if (inputKB1)inputKB1 = true;
-if (inputKB2)inputKB2 = true;
-if (inputKB3)inputKB3 = true;
-if (inputKB4)inputKB4 = true;
+if (keyboard_check(inputKB1))global.inputKB1 = true;
+if (keyboard_check(inputKB2))global.inputKB2 = true;
+if (keyboard_check(inputKB3))global.inputKB3 = true;
+if (keyboard_check(inputKB4))global.inputKB4 = true;
 }
 
 

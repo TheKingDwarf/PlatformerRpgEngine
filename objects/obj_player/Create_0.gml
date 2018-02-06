@@ -58,16 +58,19 @@ sprite[playerStates.casting,spells.fireball] = spr_arms_fireball;
 sprite[playerStates.casting,spells.lightning] = spr_arms_lighting;
 #endregion
 //movement values
-accel = 0.2;
-decel = .5;
+accel = 0.5;
+decel = 1;
 grav = 0.2;
 
-jumpAccel = 3;
+jumpAccel = 1.5;
 
-jumpForgive = 5;//how many steps off being off platform to "forgive" and still let player jump
+jumping = false;
 
-hspd = 3;
-vspd = 8;
+maxHspd = 3;
+maxVspd = 9;
+
+hspd = 0;
+vspd = 0;
 
 facing = image_xscale;
 
@@ -91,9 +94,14 @@ manaRegenCombat = 1;//mana regen (in combat);
 combatTimerMax = 30;//maximum time on the timer
 combatTimer = 0;//current time
 
-state = playerStates.idle;
+state = playerStates.run;
 
 keys[10] = 0; //keys for dungeons
+
+canCast = true;// can cast a spell
+spell = 000000;
+
+knockback = 0;
 
 
 
