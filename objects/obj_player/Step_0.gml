@@ -16,7 +16,8 @@ kBut2		 = keyboard_check(ord("1")) or gamepad_button_check(0, gp_face2);
 kBut3		 = keyboard_check(ord("2")) or gamepad_button_check(0, gp_face3);
 kBut4		 = keyboard_check(ord("3")) or gamepad_button_check(0, gp_face4);
 
-
+if (kLeft) image_xscale = -1;
+if (kRight) image_xscale = 1;
 if (!obj_gameController.paused) { // if game isnt paused
 	
 	
@@ -162,7 +163,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 		state = playerStates.run;	
 	}
 	if (state = playerStates.casting) {
-		if (!instance_exists(obj_aimer))instance_create_layer(x,y,layer,obj_aimer);
+		if (!instance_exists(obj_aimer))instance_create_depth(x,y,depth,obj_aimer);
 		if (!gamepad_is_connected(0) and keyboard_check_released(ord("F"))) state = playerStates.run;
 		
 	}

@@ -17,4 +17,6 @@ x = mouse_x;
 y = mouse_y;
 	
 }
-depth = -10000;
+x = floor(x);
+y = floor(y);
+show_debug_message(string(x))

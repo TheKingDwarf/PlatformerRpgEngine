@@ -1,13 +1,5 @@
 paused = false;
-global.inputDown = 0;
-global.inputSpace = 0;
-global.inputLeft = 0;
-global.inputRight = 0;
-global.inputKB1 = 0;
-global.inputKB2 = 0;
-global.inputKB3 = 0;
-global.inputKB4 = 0;
-global.inputUp = 0;
+
 
 kLeft = 0;
 kRight= 0;
@@ -21,3 +13,8 @@ kBut1= 0;
 kBut2= 0;
 kBut3= 0;
 kBut4= 0;
+
+
+
+
+
