@@ -11,10 +11,12 @@ kDown        = keyboard_check(ord("S")) or (gamepad_axis_value(0,gp_axislv)> gam
 kJump        =  keyboard_check_pressed(vk_space) or gamepad_button_check_pressed(0,gp_face1);
 kJumpRelease = keyboard_check_released(vk_space)or gamepad_button_check_released(0,gp_face1);
 
-kBut1		 = mouse_check_button(mb_left) or gamepad_button_check(0,gp_shoulderrb);
+kBut1		 = keyboard_check(ord("F")) or gamepad_button_check(0,gp_shoulderrb);
 kBut2		 = keyboard_check(ord("1")) or gamepad_button_check(0, gp_face2);
 kBut3		 = keyboard_check(ord("2")) or gamepad_button_check(0, gp_face3);
 kBut4		 = keyboard_check(ord("3")) or gamepad_button_check(0, gp_face4);
+
+
 if (!obj_gameController.paused) { // if game isnt paused
 	
 	
@@ -119,20 +121,20 @@ if (!obj_gameController.paused) { // if game isnt paused
 		if (kJump && cLeft && !onGround) {
 		    if (kLeft) {
 		        vy = -jumpHeight * 1.1;
-		        vx =  jumpHeight * .75;
+		        vx =  jumpHeight * .35;
 		    } else {
 		        vy = -jumpHeight * 1.1;
-		        vx =  vxMax;
+		        vx =  vxMax * 0.75;
 		    }  
 		}
 
 		if (kJump && cRight && !onGround) {
 		    if (kRight) {
 		        vy = -jumpHeight * 1.1;
-		        vx = -jumpHeight * .75;
+		        vx = -jumpHeight * .35;
 		    } else {
 		        vy = -jumpHeight * 1.1;
-		        vx = -vxMax;
+		        vx = -vxMax * 0.75;
 		    }  
 		}
  
@@ -152,10 +154,16 @@ if (!obj_gameController.paused) { // if game isnt paused
 	#endregion
 	
 	#region state = casting
-	if (canCast and kBut1) state = playerStates.casting;
-	
-	if (state = playerStates.casting) {
+	if (canCast and kBut1) {
+		state = playerStates.casting;
+		vx = 0;
 		
+	} else {
+		state = playerStates.run;	
+	}
+	if (state = playerStates.casting) {
+		if (!instance_exists(obj_aimer))instance_create_layer(x,y,layer,obj_aimer);
+		if (!gamepad_is_connected(0) and keyboard_check_released(ord("F"))) state = playerStates.run;
 		
 	}
 	

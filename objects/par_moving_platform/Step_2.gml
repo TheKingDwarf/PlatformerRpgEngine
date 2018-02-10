@@ -18,6 +18,8 @@ repeat (abs(vy)) { // repeat vy times
                 y += sign(vy);// addd the speed of the platform
 			
 		}
+		var collision = instance_place(x, y + sign(vy), par_entity)
+		if (collision) collision.y += sign(vy);
 		y += sign(vy);//add our speed to vy
 		
 	} else {
@@ -32,22 +34,15 @@ repeat (abs(vy)) { // repeat vy times
 repeat (abs(vx)) { // repeat vx times
 	if (!instance_place(x + sign(vx),y,par_bumper)) {
 		with (par_entity) {
-			if (instance_place(x, y + 1, other.id)) { // if we are on the platform
+			if (instance_place(x, y + 1, other.id) and x >= other.x and x <= other.x+other.sprite_width) { // if we are on the platform
 				if (!PlaceMeetingException(x + sign(other.vx), y, obj_solid, other.id)) { // if we dont collide with other walls
 					x += sign(other.vx);// move with the platform
 				}	
-			} else { // if we are not on the platform, check for being crushed
-				if (instance_place(x+1,y,other.id)and instance_place(x-1,y,obj_solid)) {
-					hp--;	
-				}
-				if (instance_place(x-1,y,other.id)and instance_place(x+1,y,obj_solid)) {
-					hp--;	
-				}
-				
 			}
 			
 		}
-		
+		var collision = instance_place(x +sign(vx),y,par_entity) 
+		if (collision) collision.x += sign(vx)
 		
 		
 		x += sign(vx);
