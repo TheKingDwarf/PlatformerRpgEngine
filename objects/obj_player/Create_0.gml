@@ -63,16 +63,16 @@ event_inherited();
 // Movement ///////////////////////////////////////////////////////////////////
 
 // Multiplier
-m = 1.4;
+m = 1.6;
 //still needs tweaking
 groundAccel = 1.0  * m;
 groundFric  = 1.9  * m;
-airAccel    = 0.75 * m;
-airFric     = 0.1  * m;
-vxMax       = 6.5  * m;
+airAccel    = 0.8 * m;
+airFric     = 1.9 * m;
+vxMax       = 8.0  * m;
 vyMax       = 14.0 * m;
-jumpHeight  = 10.0  * m;
-gravNorm    = 0.75  * m;
+jumpHeight  = 12.0  * m;
+gravNorm    = 0.9  * m;
 gravSlide   = 0.25 * m; 
 
 clingTime   = 4.0 * m;

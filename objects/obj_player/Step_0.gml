@@ -29,6 +29,8 @@ if (!obj_gameController.paused) { // if game isnt paused
 		combatTimer = combatTimerMax;
 		
 	}
+	// temporary hp code
+	if (hp <= 0) instance_destroy();
 	
 	
 	
