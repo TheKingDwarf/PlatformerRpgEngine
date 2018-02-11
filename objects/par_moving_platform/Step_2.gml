@@ -34,7 +34,7 @@ repeat (abs(vy)) { // repeat vy times
 repeat (abs(vx)) { // repeat vx times
 	if (!instance_place(x + sign(vx),y,par_bumper)) {
 		with (par_entity) {
-			if (instance_place(x, y + 1, other.id) and x >= other.x and x <= other.x+other.sprite_width) { // if we are on the platform
+			if (instance_place(x, y + 1, other.id) and x >= other.x-5 and x <= other.x+other.sprite_width+5) { // if we are on the platform
 				if (!PlaceMeetingException(x + sign(other.vx), y, obj_solid, other.id)) { // if we dont collide with other walls
 					x += sign(other.vx);// move with the platform
 				}	
