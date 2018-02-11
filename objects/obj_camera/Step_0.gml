@@ -7,7 +7,7 @@ y += (yTo - y)/speedDiv;
 if (follow != noone) 
 {
 	xTo = follow.x;
-	yTo = follow.y;
+	yTo = follow.y + follow.sprite_height;
 	
 }
 
@@ -25,7 +25,7 @@ if(screenshake > 0) {
 }
 
 x = round(x);
-y= round(x);
+y= round(y);
 	
 
 			
