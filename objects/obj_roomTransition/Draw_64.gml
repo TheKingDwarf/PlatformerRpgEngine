@@ -3,42 +3,26 @@ if (instance_place(x,y,obj_player)) {
 	
 	triggered = true;
 	with (obj_player) state = playerStates.frozen;
-}
-if (triggered and !surf1made) {
-	surf1 = surface_create(640,360);
-	surface_copy(surf1,0,0,application_surface)
-	room_goto(room_to);	
-	surf1made = true;
+	obj_audioController.next_track = music;
 }
 
-if (triggered and !surf2made) {
-	surf2 = surface_create(640,360)	
-	surface_copy(surf2,0,0,application_surface)
-	surf2made = true;
-}
-
-if(triggered) {
-	frame++;
-	if (frame = 1) {
-		if (surface_exists(surf1))
-		draw_surface_ext(surf1,0,0,global.scale_factor,global.scale_factor,0,c_white,1);		
-	}
+if (triggered) {
+	if (phase_2 = false) {
+		if (alpha < 1) {
+			alpha += 1/(maxframes/2);	
+		} else {
+			room_goto(room_to);
 	
-	if (frame > 1) {
-		var xxxx = (frame/maxframes)*640;
-		show_debug_message(string(xxxx));
-		if (surface_exists(surf1))
-		draw_surface_ext(surf1,-xxxx,0,global.scale_factor,global.scale_factor,0,c_white,1);	
-		
-		if (surface_exists(surf2))
-		draw_surface_ext(surf2,640-xxxx,0,global.scale_factor,global.scale_factor,0,c_white,1);
-		obj_player.x = new_x;
-		obj_player.y = new_y;
-		
+		}
+	} else {
+		if (alpha > 0) {
+			alpha -= 1/(maxframes/2);	
+		}	
 	}
-	if (frame >= maxframes) {
-		with (obj_player) state = playerStates.run;
-		instance_destroy();
-		
-	}
+	show_debug_message(string(alpha));
+	draw_set_alpha(alpha);
+	draw_set_color(c_black);
+	draw_rectangle(0,0,640*global.scale_factor,360*global.scale_factor,false);
+	draw_set_alpha(1)
+	draw_set_color(c_white);
 }

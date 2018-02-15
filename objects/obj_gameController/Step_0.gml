@@ -6,6 +6,12 @@ if (gamepad_is_connected(0)) {
 }
 
 
+wind_sin+= 0.1;
+
+wind_sin = clamp(wind_sin,0,359);
+
+wind += dsin(wind_sin);
+
 kLeft        = keyboard_check(ord("A")) or (gamepad_axis_value(0,gp_axislh) >.5);
 kRight       = keyboard_check(ord("D")) or (gamepad_axis_value(0,gp_axislh)<-.5);
 kUp          = keyboard_check(ord("W")) or (gamepad_axis_value(0,gp_axislv)<-.5);

@@ -3,6 +3,11 @@
 
 vx += knockback;
 vy -= knockup;
+
+if (knockback > 0)
+knockback--;
+if (knockup > 0)
+knockup--;
 repeat(abs(vy)) {
     if (!place_meeting(x, y + sign(vy), obj_solid))
         y += sign(vy); 

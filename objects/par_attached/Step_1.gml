@@ -1,6 +1,5 @@
 /// @description 
-var dx;
-var dy;
+
 if (!parentInit) {
     if (parent) {
         dx = x - parent.x;

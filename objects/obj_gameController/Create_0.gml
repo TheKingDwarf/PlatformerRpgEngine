@@ -1,6 +1,10 @@
 paused = false;
 
 
+wind = 1; // wind for decor objects
+wind_sin = 0;
+
+
 kLeft = 0;
 kRight= 0;
 kUp= 0;

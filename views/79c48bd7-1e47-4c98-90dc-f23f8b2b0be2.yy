@@ -12,7 +12,10 @@
         "7d0aadce-8ad2-4490-b633-3137c2499f3b",
         "2bff3ef9-bf7c-4d3a-a9fc-02788838eae5",
         "d1865473-f32e-430b-b331-bf9e2f72564f",
-        "5f0da8dd-8534-4c9a-a2d5-d05edf881aa0"
+        "5f0da8dd-8534-4c9a-a2d5-d05edf881aa0",
+        "7a377e65-389c-49b4-8324-b2ee6b897058",
+        "c1d95d65-29c4-4901-9ab3-f858faccad90",
+        "0a1bdf81-892f-45d4-9cde-42978791bbe9"
     ],
     "filterType": "GMObject",
     "folderName": "parents",

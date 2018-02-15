@@ -33,16 +33,6 @@
             "enumb": 4,
             "eventtype": 7,
             "m_owner": "5f0da8dd-8534-4c9a-a2d5-d05edf881aa0"
-        },
-        {
-            "id": "81ced72b-d761-4ffe-a93c-51dbc27c5792",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 1,
-            "m_owner": "5f0da8dd-8534-4c9a-a2d5-d05edf881aa0"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -116,20 +106,6 @@
             "resourceFilter": 1023,
             "value": "noone",
             "varName": "music",
-            "varType": 0
-        },
-        {
-            "id": "a5fbc589-b0ce-4651-a4ba-57e9538afb61",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "0",
-            "varName": "dir",
             "varType": 0
         }
     ],

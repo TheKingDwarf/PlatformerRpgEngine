@@ -1,7 +1,9 @@
 /// @description 
+var distAhead = 48;
 var speedDiv = 8;
-x += (xTo - x  + (48*follow.image_xscale))/speedDiv;
-y += (yTo - y)/speedDiv;
+if (obj_player.state = playerStates.casting) distAhead = 0;
+x += (xTo - x  + (distAhead*follow.image_xscale))/speedDiv;
+y += (yTo - y - 48)/speedDiv;
 
 
 if (follow != noone) 
