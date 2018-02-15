@@ -1,0 +1,13 @@
+Converting GML script: ${project_dir}\scripts\DrawSpriteSkewExt\DrawSpriteSkewExt.gml
+Converted description /// @description  DrawSpriteSkewExt(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha, image_xskew, image_yskew);/// @function  DrawSpriteSkewExt
+/// @param sprite_index
+/// @param  image_index
+/// @param  x
+/// @param  y
+/// @param  image_xscale
+/// @param  image_yscale
+/// @param  image_angle
+/// @param  image_blend
+/// @param  image_alpha
+/// @param  image_xskew
+/// @param  image_yskew
