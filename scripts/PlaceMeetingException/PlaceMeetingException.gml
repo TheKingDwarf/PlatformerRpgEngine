@@ -10,7 +10,7 @@ with (argument2) {
     else
         with (other)
             if (place_meeting(argument0, argument1, this))
-                return true;
+                return this;
 }
 
 // Collision with a different object

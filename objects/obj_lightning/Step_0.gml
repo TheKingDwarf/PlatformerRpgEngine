@@ -1,6 +1,6 @@
 /// @description 
 //alpha control
-if (ds_list_empty(splits)) {
+if (ds_list_empty(splits)) { // if the splits arent generated, make them
 //lightning_split(id);
 var minRotation = -40, maxRotation = 40;
 var splitSize = 8;
@@ -18,11 +18,12 @@ var splitSize = 8;
 	}	
 	
 }
+//decrease alpha
 alpha -= .5 / fadeTime;
 if(alpha <= .5)
     instance_destroy();
 	
-
+// create damage objects on collision
 var coll = noone;
 if (instance_exists(obj_aimer))
 coll = collision_line(obj_player.x,obj_player.y,obj_aimer.x,obj_aimer.y,par_enemy_debug,false,true);

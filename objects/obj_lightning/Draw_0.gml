@@ -1,9 +1,9 @@
 /// @description 
 draw_set_colour(color);
 draw_set_alpha(alpha);
-gpu_set_blendmode(bm_max);
+gpu_set_blendmode(bm_max);//makes overlapping lines lighter
 var currentX = x, currentY = y;
-for(var i = 0; i < ds_list_size(splits); i += 2)
+for(var i = 0; i < ds_list_size(splits); i += 2) // loop through all the splits and draw
 {
     var nextX = splits[| i], nextY = splits[| i + 1];
     draw_line(currentX, currentY, nextX, nextY);

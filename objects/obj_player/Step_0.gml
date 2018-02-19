@@ -13,8 +13,8 @@ kJumpRelease = keyboard_check_released(vk_space)or gamepad_button_check_released
 
 kBut1		 = keyboard_check(ord("F")) or gamepad_button_check(0,gp_shoulderrb);
 kBut2		 = keyboard_check_pressed(ord("1")) or gamepad_button_check_pressed(0, gp_face2);
-kBut3		 = keyboard_check_pressed(ord("2")) or gamepad_button_check_pressed(0, gp_face3);
-kBut4		 = keyboard_check_pressed(ord("3")) or gamepad_button_check_pressed(0, gp_face4);
+kBut3		 = keyboard_check_pressed(ord("3")) or gamepad_button_check_pressed(0, gp_face3);
+kBut4		 = keyboard_check_pressed(ord("2")) or gamepad_button_check_pressed(0, gp_face4);
 
 if (kLeft) image_xscale = -1;
 if (kRight) image_xscale = 1;
@@ -65,6 +65,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 		    tempAccel = groundAccel;
 		    tempFric  = groundFric;
 			canCast = true;
+			canJump = true;
 		} else {
 			canCast = false;
 		    tempAccel = airAccel;
@@ -116,7 +117,8 @@ if (!obj_gameController.paused) { // if game isnt paused
 		    vx = Approach(vx, 0, tempFric); 
         
 		// Wall jump
-		if (kJump && cLeft && !onGround) {
+		if (kJump && cLeft && !onGround & canJump) {
+			canJump = false;
 		    if (kLeft) {
 		        vy = -jumpHeight * 1.1;
 		        vx =  jumpHeight * .35;
@@ -126,7 +128,8 @@ if (!obj_gameController.paused) { // if game isnt paused
 		    }  
 		}
 
-		if (kJump && cRight && !onGround) {
+		if (kJump && cRight && !onGround & canJump) {
+			canJump = false;
 		    if (kRight) {
 		        vy = -jumpHeight * 1.1;
 		        vx = -jumpHeight * .35;
@@ -158,6 +161,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 		
 	} else {
 		state = playerStates.run;	
+		spell = 0;
 	}
 	if (state = playerStates.casting) {
 		
@@ -189,14 +193,17 @@ if (!obj_gameController.paused) { // if game isnt paused
 			
 			switch (spell) {
 				case 9: // fireball
-					if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
-						mana -= spells.fireball;
-						combatTimer = combatTimerMax
-						//var fb = instance_create(x,y,layer,obj_fireball);
-						//fb.dir = point_direction(x,y,obj_aimer.x,obj_aimer.y);
-						//var _base_damage = 2;
-						//fb.damage = damage * _base_damage;
-					}
+					combatTimer = combatTimerMax
+					
+					mana -= spells.fireball;
+					combatTimer = combatTimerMax
+					var fb = instance_create_layer(x,y,layer,obj_fireball);
+					var _dir = point_direction(x,y,obj_aimer.x,obj_aimer.y)
+					fb.dir = _dir;
+					var _base_damage = 2;
+					fb.damage = damage * _base_damage;
+					canCast = false;
+					
 					break;
 				case 17: //lighting
 					//will need to arc damage at the aimer
@@ -215,7 +222,8 @@ if (!obj_gameController.paused) { // if game isnt paused
 					if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
 						for (var i = 0; i < 6; i++)
 						instance_destroy(obj_lightning);
-						}
+						
+					}
 					break;
 				case 33:// ice
 					//much the same as fireball, the difference will be in the ice object itself

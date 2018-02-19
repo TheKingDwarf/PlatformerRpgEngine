@@ -1,6 +1,6 @@
 /// @description 
 accel += 0.5;
-if (accel > 9) accel = 9;
+if (accel > 15) accel = 15;
 if (!obj_gameController.kBut1) instance_destroy();
 if (gamepad_is_connected(0)) {
 	
