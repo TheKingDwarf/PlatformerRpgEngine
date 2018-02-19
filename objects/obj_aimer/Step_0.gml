@@ -12,11 +12,11 @@ if (gamepad_is_connected(0)) {
 	
 	x += lengthdir_x(accel,rightStickDirection);
 	y += lengthdir_y(accel,rightStickDirection);
+	
 } else {
 x = mouse_x;
 y = mouse_y;
 	
 }
-x = floor(x);
-y = floor(y);
-show_debug_message(string(x))
+clamp(x,obj_camera.x-320,obj_camera.x+320);
+clamp(y,obj_camera.y-180,obj_camera.y+180);

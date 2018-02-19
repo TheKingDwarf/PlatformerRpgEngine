@@ -19,7 +19,7 @@ if (triggered) {
 			alpha -= 1/(maxframes/2);	
 		}	
 	}
-	show_debug_message(string(alpha));
+	
 	draw_set_alpha(alpha);
 	draw_set_color(c_black);
 	draw_rectangle(0,0,640*global.scale_factor,360*global.scale_factor,false);

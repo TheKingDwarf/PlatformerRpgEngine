@@ -11,9 +11,9 @@ enum spells {
 	destruction = 000001,
 	nature = 000010,
 	void = 000100,
-	fireball = 	001001, // spells will follow this format. it is split up into 2 3 block chunks. a 1 in the first p
-	lightning = 010001,//of the chunk = b, a 1 in the second part = y, a 1 in the third part = x;
-	freeze = 100001,
+	fireball = 	20, // spells will follow this format. it is split up into 2 3 block chunks. a 1 in the first p
+	lightning = 10,//of the chunk = b, a 1 in the second part = y, a 1 in the third part = x;
+	freeze = 30,
 	pushSpirit = 001010,
 	vines = 010010,
 	swarm = 100010,
@@ -94,16 +94,18 @@ xp = 0; //experience
 hp = 10;//health
 maxHp = 10;
 
+damage = 1; // damage modifier
+
 armor = armorSets.defaultArmor;//armor
 
 coins = 0;//money
 
 manaFull = 100; // maximum mana
 mana = 100; // current mana
-manaRegen = 5; //mana regen (out of combat)
-manaRegenCombat = 1;//mana regen (in combat);
+manaRegen = 1; //mana regen (out of combat)
+manaRegenCombat = 1/10;//mana regen (in combat);
 
-combatTimerMax = 30;//maximum time on the timer
+combatTimerMax = 60;//maximum time on the timer
 combatTimer = 0;//current time
 
 state = playerStates.run;

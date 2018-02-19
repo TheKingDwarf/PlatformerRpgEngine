@@ -1,5 +1,5 @@
 /// @description 
-
+alpha = 1;
 virtualX = x;
 virtualY = y;
 depth = -1;

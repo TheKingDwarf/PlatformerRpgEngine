@@ -12,9 +12,9 @@ kJump        =  keyboard_check_pressed(vk_space) or gamepad_button_check_pressed
 kJumpRelease = keyboard_check_released(vk_space)or gamepad_button_check_released(0,gp_face1);
 
 kBut1		 = keyboard_check(ord("F")) or gamepad_button_check(0,gp_shoulderrb);
-kBut2		 = keyboard_check(ord("1")) or gamepad_button_check(0, gp_face2);
-kBut3		 = keyboard_check(ord("2")) or gamepad_button_check(0, gp_face3);
-kBut4		 = keyboard_check(ord("3")) or gamepad_button_check(0, gp_face4);
+kBut2		 = keyboard_check_pressed(ord("1")) or gamepad_button_check_pressed(0, gp_face2);
+kBut3		 = keyboard_check_pressed(ord("2")) or gamepad_button_check_pressed(0, gp_face3);
+kBut4		 = keyboard_check_pressed(ord("3")) or gamepad_button_check_pressed(0, gp_face4);
 
 if (kLeft) image_xscale = -1;
 if (kRight) image_xscale = 1;
@@ -32,16 +32,22 @@ if (!obj_gameController.paused) { // if game isnt paused
 	
 	#endregion
 	
-	#region // regenerate mana
-	if (mana < manaFull) {
-		if (combatTimer <= 0) {
-				mana += manaRegen;
-		} else {
-				mana += manaRegenCombat;
-		}
+	#region // stats
+	// regen mana
+	if (!state = playerStates.casting) {
+		if (mana < manaFull) {
+			if (combatTimer <= 0) {
+					mana = Approach(mana, manaFull, manaRegen);
+			} else {
+					mana = Approach(mana, manaFull, manaRegenCombat);
+			}
 		
+		}
 	}
-	
+	if (combatTimer > 0) combatTimer--;
+	show_debug_message("mana: " + string(mana));
+	//show_debug_message("hp: " + string(hp));
+	show_debug_message("combat timer : " + string(combatTimer));
 	
 	#endregion
 	
@@ -154,9 +160,100 @@ if (!obj_gameController.paused) { // if game isnt paused
 		state = playerStates.run;	
 	}
 	if (state = playerStates.casting) {
-		if (!instance_exists(obj_aimer))instance_create_depth(x,y,depth,obj_aimer);
-		if (!gamepad_is_connected(0) and keyboard_check_released(ord("F"))) state = playerStates.run;
 		
+		if (!instance_exists(obj_aimer))instance_create_depth(x,y,depth,obj_aimer);
+		
+		if (spell < 5) {
+			if (kBut2) { // B
+				if (spell = 0) { //if no inputs so far
+					spell += 1;	//add to the first column
+				} else {
+					spell += 8; // else add to the 4th
+				}	
+			}
+			if (kBut4) { // Y
+				if (spell = 0) {
+					spell += 2;
+				} else {
+					spell += 16;
+				}	
+			}
+			if (kBut3) { // X
+				if (spell = 0) {
+					spell += 4;
+				} else {
+					spell += 32;
+				}	
+			}
+		} else {
+			
+			switch (spell) {
+				case 9: // fireball
+					if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
+						mana -= spells.fireball;
+						combatTimer = combatTimerMax
+						//var fb = instance_create(x,y,layer,obj_fireball);
+						//fb.dir = point_direction(x,y,obj_aimer.x,obj_aimer.y);
+						//var _base_damage = 2;
+						//fb.damage = damage * _base_damage;
+					}
+					break;
+				case 17: //lighting
+					//will need to arc damage at the aimer
+					combatTimer = combatTimerMax
+					obj_aimer.alpha = Approach(obj_aimer.alpha, 0.1, 0.1);
+					if (mana >= spells.lightning) {
+						
+						if (instance_number(obj_lightning)< 6) {
+							mana-= spells.lightning;
+							var light = instance_create_layer(obj_aimer.x ,obj_aimer.y ,layer,obj_lightning);
+							light.targetX = x;
+							light.targetY = y + irandom(5);
+						
+						}
+					}
+					if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
+						for (var i = 0; i < 6; i++)
+						instance_destroy(obj_lightning);
+						}
+					break;
+				case 33:// ice
+					//much the same as fireball, the difference will be in the ice object itself
+					if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
+							//var ice = instance_create(x,y,layer,obj_fireball);
+							//ice.dir = point_direction(x,y,obj_aimer.x,obj_aimer.y);
+							//var _base_damage = 1;
+							//ice.damage = damage * _base_damage;
+						}
+					break;
+				case 10:// push spirit
+				
+					break;
+				case 18: // vines
+				
+					break;
+				case 34: // rat swarm
+					//can probably code this similiar to lightning
+					break;
+				case 12: // bend space
+				
+					break;
+				case 20: // necromancy
+				
+					break;
+				case 40: // remove space
+				
+					break;
+					
+			
+			}
+			
+		}
+		if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
+			spell = 0;
+			state = playerStates.run;
+			canCast = false;
+		}
 	}
 	
 	#endregion
