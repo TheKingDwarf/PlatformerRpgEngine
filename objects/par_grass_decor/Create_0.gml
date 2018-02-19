@@ -7,3 +7,4 @@ _sin = irandom(45);
 
 entityMoving = false;
 entityCollision = false;
+

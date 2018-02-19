@@ -194,16 +194,17 @@ if (!obj_gameController.paused) { // if game isnt paused
 			switch (spell) {
 				case 9: // fireball
 					combatTimer = combatTimerMax
-					
-					mana -= spells.fireball;
-					combatTimer = combatTimerMax
-					var fb = instance_create_layer(x,y,layer,obj_fireball);
-					var _dir = point_direction(x,y,obj_aimer.x,obj_aimer.y)
-					fb.dir = _dir;
-					var _base_damage = 2;
-					fb.damage = damage * _base_damage;
+					if (mana >= spells.fireball) {
+						mana -= spells.fireball;
+						combatTimer = combatTimerMax
+						var fb = instance_create_layer(x,y,layer,obj_fireball);
+						var _dir = point_direction(x,y,obj_aimer.x,obj_aimer.y)
+						fb.dir = _dir;
+						var _base_damage = 2;
+						fb.damage = damage * _base_damage;
+						
+					}
 					canCast = false;
-					
 					break;
 				case 17: //lighting
 					//will need to arc damage at the aimer

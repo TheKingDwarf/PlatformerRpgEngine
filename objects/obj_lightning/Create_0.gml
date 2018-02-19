@@ -7,3 +7,7 @@ alpha = 1;//alpha counter
 targetX = 0;//point to end at
 targetY = 0;//point to end at
 parent = obj_player;
+
+//set layers
+dam_layer = layer;
+layer = global.FXlayer;

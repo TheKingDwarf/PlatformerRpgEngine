@@ -29,6 +29,6 @@ if (instance_exists(obj_aimer))
 coll = collision_line(obj_player.x,obj_player.y,obj_aimer.x,obj_aimer.y,par_enemy_debug,false,true);
 
 if (coll) {
-	var dam = instance_create_layer(coll.x,coll.y,layer,par_damage);	
+	var dam = instance_create_layer(coll.x,coll.y,dam_layer,par_damage);	
 	dam.parent = obj_player.id;
 }

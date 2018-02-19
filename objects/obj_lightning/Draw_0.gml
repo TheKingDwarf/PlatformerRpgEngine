@@ -10,6 +10,7 @@ for(var i = 0; i < ds_list_size(splits); i += 2) // loop through all the splits 
     currentX = nextX;
     currentY = nextY;
 }
+
 draw_line(currentX, currentY, targetX, targetY);
 
 draw_set_color(c_white)
