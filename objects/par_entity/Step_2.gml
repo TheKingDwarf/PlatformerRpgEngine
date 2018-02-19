@@ -4,10 +4,7 @@
 vx += knockback;
 vy -= knockup;
 
-if (knockback > 0)
-knockback--;
-if (knockup > 0)
-knockup--;
+
 repeat(abs(vy)) {
     if (!place_meeting(x, y + sign(vy), obj_solid))
         y += sign(vy); 
@@ -16,6 +13,7 @@ repeat(abs(vy)) {
         break;
     }
 }
+vy -= knockup;
 
 // Horizontal
 repeat(abs(vx)) {
@@ -26,3 +24,9 @@ repeat(abs(vx)) {
         break;
     }
 }
+vx -= knockback;
+
+if (knockback > 0)
+knockback--;
+if (knockup > 0)
+knockup--;
