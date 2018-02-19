@@ -22,7 +22,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 	
 	
 	#region // take damage
-
+	mask_index = spr_player_run;
 	// temporary hp code
 	if (hp <= 0) instance_destroy();
 	
@@ -265,5 +265,36 @@ if (!obj_gameController.paused) { // if game isnt paused
 		}
 	}
 	
+	#endregion
+	
+	
+	#region handle sprites
+	if (state = playerStates.run) {
+		if (onGround) {
+			if (abs(vx)>0) { //if moving
+				if (instance_place(x+vx,y,obj_solid)) { //if running into wall
+					//sprite_index = spr_player_pushing
+				} else { //if just running normal
+					sprite_index = spr_player_run;
+				}
+			} else { // if idle
+				sprite_index = spr_player_idle;
+			}
+		
+		} else {
+		
+		
+		}
+	}
+	if (state = playerStates.casting) {
+		
+	}
+	if (state = playerStates.frozen) {
+		
+		
+	}
+	if (state = playerStates.talking) {
+		
+	}
 	#endregion
 }
