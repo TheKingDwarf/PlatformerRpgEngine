@@ -33,6 +33,9 @@ if (!obj_gameController.paused) { // if game isnt paused
 	#endregion
 	
 	#region // stats
+	
+	
+	
 	// regen mana
 	if (!state = playerStates.casting) {
 		if (mana < manaFull) {
@@ -45,9 +48,13 @@ if (!obj_gameController.paused) { // if game isnt paused
 		}
 	}
 	if (combatTimer > 0) combatTimer--;
-	show_debug_message("mana: " + string(mana));
+	
+	//draw_stats
+	//show_debug_message("mana: " + string(mana));
 	//show_debug_message("hp: " + string(hp));
-	show_debug_message("combat timer : " + string(combatTimer));
+	show_debug_message("xp: " + string(xp));
+	show_debug_message("gc: " + string(coins));
+	//show_debug_message("combat timer : " + string(combatTimer));
 	
 	#endregion
 	
