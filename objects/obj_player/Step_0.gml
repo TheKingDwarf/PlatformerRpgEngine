@@ -171,8 +171,8 @@ if (!obj_gameController.paused) { // if game isnt paused
 		spell = 0;
 	}
 	if (state = playerStates.casting) {
-		
-		if (!instance_exists(obj_aimer))instance_create_depth(x,y,depth,obj_aimer);
+		if (!onGround) y -= gravNorm;
+		if (!instance_exists(obj_aimer))instance_create_layer(x,y,"Instances",obj_aimer);
 		
 		if (spell < 5) {
 			if (kBut2) { // B
@@ -204,7 +204,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 					if (mana >= spells.fireball) {
 						mana -= spells.fireball;
 						combatTimer = combatTimerMax
-						var fb = instance_create_layer(x,y,layer,obj_fireball);
+						var fb = instance_create_layer(x,y,"Instances",obj_fireball);
 						var _dir = point_direction(x,y,obj_aimer.x,obj_aimer.y)
 						fb.dir = _dir;
 						var _base_damage = 2;
@@ -221,10 +221,11 @@ if (!obj_gameController.paused) { // if game isnt paused
 						
 						if (instance_number(obj_lightning)< 6) {
 							mana-= spells.lightning;
-							var light = instance_create_layer(obj_aimer.x ,obj_aimer.y ,layer,obj_lightning);
+							var light = instance_create_layer(obj_aimer.x ,obj_aimer.y ,"Instances",obj_lightning);
+							
 							light.targetX = x;
 							light.targetY = y + irandom(5);
-						
+							
 						}
 					}
 					if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
@@ -235,12 +236,18 @@ if (!obj_gameController.paused) { // if game isnt paused
 					break;
 				case 33:// ice
 					//much the same as fireball, the difference will be in the ice object itself
-					if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
-							//var ice = instance_create(x,y,layer,obj_fireball);
-							//ice.dir = point_direction(x,y,obj_aimer.x,obj_aimer.y);
-							//var _base_damage = 1;
-							//ice.damage = damage * _base_damage;
-						}
+					combatTimer = combatTimerMax
+					if (mana >= spells.freeze) {
+						mana -= spells.freeze;
+						combatTimer = combatTimerMax;
+						var fb = instance_create_layer(x,y,"Instances",obj_freeze);
+						var _dir = point_direction(x,y,obj_aimer.x,obj_aimer.y)
+						fb.dir = _dir;
+						var _base_damage = 1;
+						fb.damage = damage * _base_damage;
+						
+					}
+					canCast = false;
 					break;
 				case 10:// push spirit
 				

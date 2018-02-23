@@ -5,8 +5,8 @@
 //application_surface_draw_enable(false);
 
 //create control objects
-instance_create_layer(x,y,layer,obj_gameController);
-instance_create_layer(x,y,layer,obj_audioController);
+instance_create_layer(x,y,"Instances",obj_gameController);
+instance_create_layer(x,y,"Instances",obj_audioController);
 //play startup sounds/animations
 
 

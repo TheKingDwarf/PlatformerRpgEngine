@@ -1,2 +1,1 @@
 /// @description 
-event_inherited();

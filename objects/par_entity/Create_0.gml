@@ -7,6 +7,7 @@ knockup = 0;
 onGround = OnGround();
 
 
+
 hp = 1;
 armor = 1;
 combatTimer = 0;
