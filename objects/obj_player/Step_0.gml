@@ -287,8 +287,8 @@ if (!obj_gameController.paused) { // if game isnt paused
 		if (onGround) {
 			if (abs(vx)>0) { //if moving
 				if (instance_place(x+vx,y,obj_solid)) { //if running into wall
-					//sprite_index = spr_player_pushing
-				} else { //if just running normal
+					sprite_index = spr_player_push;
+				} else { //if just running norma
 					sprite_index = spr_player_run;
 				}
 			} else { // if idle
