@@ -62,7 +62,9 @@ if (!obj_gameController.paused) { // if game isnt paused
 	
 	#region state = run
 	if (state = playerStates.run) {
-
+		
+		//stop any audio from other states
+		audio_stop_sound(snd_lightning_player)
 // Movement ///////////////////////////////////////////////////////////////////
 //update
 		cLeft  = place_meeting(x - 1, y, obj_solid);
@@ -202,6 +204,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 				case 9: // fireball
 					combatTimer = combatTimerMax
 					if (mana >= spells.fireball) {
+						audio_play_sound(snd_fireball_player,1,false)
 						mana -= spells.fireball;
 						combatTimer = combatTimerMax
 						var fb = instance_create_layer(x,y,"Instances",obj_fireball);
@@ -217,6 +220,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 					//will need to arc damage at the aimer
 					combatTimer = combatTimerMax
 					obj_aimer.alpha = Approach(obj_aimer.alpha, 0.1, 0.1);
+					if (!audio_is_playing(snd_lightning_player))audio_play_sound(snd_lightning_player,1,true)
 					if (mana >= spells.lightning) {
 						
 						if (instance_number(obj_lightning)< 6) {
@@ -227,17 +231,22 @@ if (!obj_gameController.paused) { // if game isnt paused
 							light.targetY = y + irandom(5);
 							
 						}
+					} else {
+						state = playerStates.run;	
+						audio_stop_sound(snd_lightning_player)
 					}
 					if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
-						for (var i = 0; i < 6; i++)
+						for (var i = 0; i < 6; i++) {
 						instance_destroy(obj_lightning);
-						
+						}
+						audio_stop_sound(snd_lightning_player)
 					}
 					break;
 				case 33:// ice
 					//much the same as fireball, the difference will be in the ice object itself
 					combatTimer = combatTimerMax
 					if (mana >= spells.freeze) {
+						audio_play_sound(snd_ice_player,1,false)
 						mana -= spells.freeze;
 						combatTimer = combatTimerMax;
 						var fb = instance_create_layer(x,y,"Instances",obj_freeze);
@@ -276,6 +285,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 			spell = 0;
 			state = playerStates.run;
 			canCast = false;
+			
 		}
 	}
 	

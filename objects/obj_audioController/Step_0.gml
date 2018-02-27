@@ -1,11 +1,13 @@
 /// @description 
 #region fade
 	// music
-if(alarm[0] == -1 and this_track != next_track) {
-	if(this_track != noone) { // fade out this track
-		audio_sound_gain(this_track, 0, music_fade*1000);
+if(this_track != next_track) {
+	if(alarm[0] == -1 ) {
+		if(this_track != noone) { // fade out this track
+			audio_sound_gain(this_track, 0, music_fade*1000);
+		}
+		alarm[0] = music_fade*room_speed ; // remove and swap tracks
 	}
-	alarm[0] = music_fade*room_speed ; // remove and swap tracks
 }
 #endregion fade
 

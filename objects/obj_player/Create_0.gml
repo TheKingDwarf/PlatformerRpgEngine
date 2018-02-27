@@ -59,7 +59,8 @@ enum armorSets {
 // Inherit oParEntity variables
 event_inherited();
 
-
+//load audio
+audio_group_load(audio_player_spells)
 // Movement ///////////////////////////////////////////////////////////////////
 
 // Multiplier
@@ -94,6 +95,7 @@ xp = 0; //experience
 
 hp = 10;//health
 maxHp = 10;
+
 
 damage = 1; // damage modifier
 
