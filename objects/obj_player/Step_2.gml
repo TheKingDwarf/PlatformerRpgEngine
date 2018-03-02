@@ -4,7 +4,6 @@
 event_inherited();
 var collolol = instance_place(x,y,obj_collectable);
 if (collolol) {
-	collolol.state = collectableStates.Grab;
 	switch (collolol.type) {
 		case collectableTypes.coin:
 			coins += collolol.value;
