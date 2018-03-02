@@ -87,6 +87,22 @@
             }
         },
         {
+            "Key": "0d60d36a-a541-4f53-9e3a-23bd0ac5030a",
+            "Value": {
+                "id": "c4ec1391-4de0-4231-9d71-7caa41a33c80",
+                "resourcePath": "sprites\\spr_gem3\\spr_gem3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0f85db67-9fa4-4f4e-acb7-f1fafae63a1a",
+            "Value": {
+                "id": "099bc97c-c42a-4762-bbc0-d55ab5c835e4",
+                "resourcePath": "sprites\\spr_coin1\\spr_coin1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0f88d2b0-16d2-4ee4-bbc1-f45f4345ef65",
             "Value": {
                 "id": "724cfa25-49c3-4a2b-be2f-7cd4e898be02",
@@ -295,11 +311,27 @@
             }
         },
         {
+            "Key": "4fec1f7d-a496-48e1-9f38-cd8d2ff5f48e",
+            "Value": {
+                "id": "5fd64ea4-2f3b-40ae-8906-55dc6e565970",
+                "resourcePath": "views\\4fec1f7d-a496-48e1-9f38-cd8d2ff5f48e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "509cf6d2-03c7-403c-a0cd-516c8031f317",
             "Value": {
                 "id": "e56da179-621d-4928-9a66-d305e720bd4f",
                 "resourcePath": "sprites\\spr_player_run\\spr_player_run.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "53876a34-444e-40b1-806a-ea65997a40b2",
+            "Value": {
+                "id": "4ff67203-f342-4e8f-a012-2c2d182d0f65",
+                "resourcePath": "objects\\obj_collectable\\obj_collectable.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -591,6 +623,14 @@
             }
         },
         {
+            "Key": "8ad279af-804e-47b5-81a4-85bbf1f06f60",
+            "Value": {
+                "id": "c449102d-8422-429d-9c4e-22eecb9125fb",
+                "resourcePath": "objects\\obj_coin\\obj_coin.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "8cf2ce87-3f5c-4cd1-9af2-adbcde7efbb7",
             "Value": {
                 "id": "2bfb302e-a908-4766-bcb6-f93864426e94",
@@ -619,6 +659,14 @@
             "Value": {
                 "id": "effd4aec-5a7a-47e6-bcf1-f074c483a924",
                 "resourcePath": "sprites\\spr_empty\\spr_empty.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "99ca4fe3-c160-4d44-9524-54fcecd41b2e",
+            "Value": {
+                "id": "037dee07-dd4c-45ce-864b-a1b9e707f0b5",
+                "resourcePath": "sprites\\spr_gem2\\spr_gem2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -836,6 +884,14 @@
                 "id": "6640ab84-2f54-40a0-857e-01e47f4f58ab",
                 "resourcePath": "objects\\par_attached\\par_attached.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "da2af24d-8862-4356-82bb-82fb9ab0c2fe",
+            "Value": {
+                "id": "fdd2ac87-aa0d-4bc9-8d2d-647910850686",
+                "resourcePath": "sprites\\spr_gem1\\spr_gem1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

@@ -52,8 +52,8 @@ if (!obj_gameController.paused) { // if game isnt paused
 	//draw_stats
 	//show_debug_message("mana: " + string(mana));
 	//show_debug_message("hp: " + string(hp));
-	show_debug_message("xp: " + string(xp));
-	show_debug_message("gc: " + string(coins));
+	//show_debug_message("xp: " + string(xp));
+	//show_debug_message("gc: " + string(coins));
 	//show_debug_message("combat timer : " + string(combatTimer));
 	
 	#endregion
