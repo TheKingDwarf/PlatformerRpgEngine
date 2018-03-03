@@ -135,6 +135,14 @@
             }
         },
         {
+            "Key": "146e65db-4fc9-4cd9-bdd5-7f1287704380",
+            "Value": {
+                "id": "976c9b97-8422-4293-975d-3cac0be8ed94",
+                "resourcePath": "sprites\\spr_forest_backgrounds\\spr_forest_backgrounds.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1484ce67-b832-4981-b3f2-8eb25a24ae12",
             "Value": {
                 "id": "8c61e315-488b-41be-80bb-d4c7c65feecd",
@@ -295,6 +303,14 @@
             }
         },
         {
+            "Key": "419629cc-df23-4e97-b5e9-405acfeedb93",
+            "Value": {
+                "id": "795a2849-3731-464e-a6a0-46016719b24a",
+                "resourcePath": "sprites\\spr_forest_backgrounds4\\spr_forest_backgrounds4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4422b4d7-570c-4990-9c13-53c87a1925ec",
             "Value": {
                 "id": "c5a88c4d-64cd-439d-8924-3cf7516e3042",
@@ -412,6 +428,14 @@
                 "id": "9dcb5b64-21af-4ad6-b805-998c98574403",
                 "resourcePath": "objects\\obj_roomTransition\\obj_roomTransition.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "5fff0a77-22f5-4050-8698-aafabc0b98c6",
+            "Value": {
+                "id": "d7f83af3-a76a-4399-84b1-33f8b60bd1e0",
+                "resourcePath": "views\\f010a52d-9722-4fc5-879c-0ee3d1a5513f-room.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -727,6 +751,14 @@
             }
         },
         {
+            "Key": "ab978752-e50e-4392-b543-dcef167445e9",
+            "Value": {
+                "id": "26702e84-bf86-4036-a61c-31a510ee71b8",
+                "resourcePath": "sprites\\spr_forest_backgrounds3\\spr_forest_backgrounds3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ac7870df-cf5e-480b-95af-a2879609e003",
             "Value": {
                 "id": "24752285-dd66-4016-b18b-195caddb3ba6",
@@ -764,6 +796,14 @@
                 "id": "a5c5e481-7807-4929-9920-57e76d95f9e5",
                 "resourcePath": "views\\b75f12d0-4a1b-4ca4-a690-7ed61cb50214.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "bbc338ad-6c83-48b1-89f6-2ab6965f5cc6",
+            "Value": {
+                "id": "0aee3f38-980b-4538-afc5-33273137d7bf",
+                "resourcePath": "rooms\\rm_level_1\\rm_level_1.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -1039,6 +1079,14 @@
             }
         },
         {
+            "Key": "f322e9f4-4b27-4983-9ab8-24046b025f7e",
+            "Value": {
+                "id": "8daf17c6-bd03-4fb2-b4b2-f719df3dcf01",
+                "resourcePath": "sprites\\spr_forest_backgrounds1\\spr_forest_backgrounds1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f32c9d88-b5db-4df9-80c1-4c05c7486f9c",
             "Value": {
                 "id": "189f205c-5626-4c82-b208-963353bd954f",
@@ -1068,6 +1116,14 @@
                 "id": "3a5d9ee9-9995-4d87-bcf8-2b86cefe7120",
                 "resourcePath": "sounds\\snd_fireball_player\\snd_fireball_player.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "f4b09a98-0025-484a-ab80-1a84d933bcd2",
+            "Value": {
+                "id": "4ea0ef56-b4e3-4b51-a92d-d2bde48f114a",
+                "resourcePath": "sprites\\spr_forest_backgrounds2\\spr_forest_backgrounds2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

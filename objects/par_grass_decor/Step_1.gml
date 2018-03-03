@@ -22,3 +22,19 @@ if (entityCollision) {
 	shift = Approach(shift, wind, .1); // else approach wind
 	if (abs(shift) > maxshift) shift = maxshift * sign(shift);//if over maxshift, = maxshift
 }
+
+blockCollision = instance_place(x,y,par_pushable);
+
+if (blockCollision) {
+	with (blockCollision) { // with colliding entity
+		if (abs(vx)> 0) {
+			other.shift += 2 * (max(1 * sign(vx),vx/3));	//add a bit to shift if moving	
+		} else {
+			other.shift = Approach(other.shift, other.wind, .1); // else approach wind
+		}
+	}
+	if (abs(shift) > maxshift) shift = maxshift * sign(shift);//if over maxshift, = maxshift
+} else {
+	shift = Approach(shift, wind, .1); // else approach wind
+	if (abs(shift) > maxshift) shift = maxshift * sign(shift);//if over maxshift, = maxshift
+}

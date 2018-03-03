@@ -1,6 +1,6 @@
 /// @description 
 // Example
-
+if (!locked) {
 #region vertical movemetn
 repeat (abs(vy)) { // repeat vy times
 	if (!place_meeting(x,y +sign(vy),par_bumper)) { // did we hit a bumper
@@ -54,3 +54,4 @@ repeat (abs(vx)) { // repeat vx times
 
 }
 #endregion
+}

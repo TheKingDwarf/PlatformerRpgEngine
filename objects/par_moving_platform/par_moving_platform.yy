@@ -59,6 +59,20 @@
             "value": "2",
             "varName": "vy",
             "varType": 0
+        },
+        {
+            "id": "fc5c0901-7926-4de2-95de-6290e332044d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "False",
+            "varName": "locked",
+            "varType": 3
         }
     ],
     "solid": false,

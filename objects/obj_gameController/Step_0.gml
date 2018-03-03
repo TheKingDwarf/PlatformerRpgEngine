@@ -24,3 +24,14 @@ kBut1		 = keyboard_check(ord("F")) or gamepad_button_check(0,gp_shoulderrb);
 kBut2		 = keyboard_check(ord("1")) or gamepad_button_check(0, gp_face2);
 kBut3		 = keyboard_check(ord("2")) or gamepad_button_check(0, gp_face3);
 kBut4		 = keyboard_check(ord("3")) or gamepad_button_check(0, gp_face4);
+
+//parallax background layers
+
+var player_vx_clamped = clamp(obj_player.vx,-1,1)
+
+for (var i = 0; i < ds_list_size(bg_layers);i++) {
+	layer_hspeed(bg_layers[| i],(1/(2+i))*obj_player.vx);	
+	layer_x(bg_layers[| i],obj_camera.x);
+	layer_y(bg_layers[| i],obj_camera.y);	
+}
+
