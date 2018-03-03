@@ -1,32 +1,25 @@
 /// @description 
 value = 1;
 
-enum collectableTypes {
-	coin=0,
-	heal=1,
-	spel=2	
-}
-enum collectableStates {
-	Init=0,
-	Fall=1,
-	Coll=2,
-	Grab=3
-}
+
 state = collectableStates.Init;
 type = collectableTypes.coin;
-
+bounce_times = 0;
 lifetime = 15*room_speed;
 xx = 0;//holds the amount to add to x for collisions 
 yy = 0;
+y-= 4;
 
-yspeedUp = 3;//speed per step going up
-yspeedDown = 4;//speed per step falling
+var m = .2;//overall speed changer
+yspeedUp = -3*m;//speed per step 
 yspeedDecay = 2;//speed lost when hitting a wall
-
-xspeed = 2;
+var randomXdirection = choose(-1,1);
+xspeed = m*random_range(0.01,1)*randomXdirection;
 xspeedDecay = 2;
+
+alarm[0] = 10;
 
 timeup = 12;//time that you go up, in frames
 
-alarm[1] = 15*lifetime;
+alarm[1] = lifetime;
 

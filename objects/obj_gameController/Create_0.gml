@@ -1,5 +1,15 @@
 paused = false;
-
+enum collectableTypes {
+	coin=0,
+	heal=1,
+	spel=2	
+}
+enum collectableStates {
+	Init=0,
+	Fall=1,
+	Coll=2,
+	Grab=3
+}
 
 wind = 1; // wind for decor objects
 wind_sin = 0;

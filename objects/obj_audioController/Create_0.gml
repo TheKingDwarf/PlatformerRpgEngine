@@ -7,7 +7,7 @@ intro = 0; //if we have an intro, set this to the length of the intro
 
 music_length = 0;//set this to the length of the main part of the music
 music_fade = 2;
-music_volume = 1;
+music_volume = 0;
 
 
 

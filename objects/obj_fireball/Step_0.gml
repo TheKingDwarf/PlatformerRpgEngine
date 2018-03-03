@@ -30,6 +30,7 @@ if (coll) {
 	instance_destroy();
 }
 
+
 //collision with anything else
 var coll = instance_place(x,y,obj_solid);
 if (coll) {

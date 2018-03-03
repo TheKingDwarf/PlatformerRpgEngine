@@ -14,7 +14,7 @@ enum spells {
 	fireball = 	20, // spells will follow this format. it is split up into 2 3 block chunks. a 1 in the first p
 	lightning = 10,//of the chunk = b, a 1 in the second part = y, a 1 in the third part = x;
 	freeze = 30,
-	pushSpirit = 001010,
+	pushSpirit = 001010,//cancel what was said above, the number is no "cost" of spell
 	vines = 010010,
 	swarm = 100010,
 	bendSpace = 001100,

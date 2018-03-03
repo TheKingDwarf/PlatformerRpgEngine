@@ -6,7 +6,8 @@
     "children": [
         "820bc67f-7a79-4cb2-b2c2-d93082bcf79a",
         "1f4543e1-cfeb-4b70-9d7b-efc070b5628c",
-        "78903593-185c-47f2-9f30-0261566fd7bd"
+        "78903593-185c-47f2-9f30-0261566fd7bd",
+        "3198ab53-b37b-44da-9b7a-7e5d1e65e833"
     ],
     "filterType": "GMObject",
     "folderName": "player spell objects",

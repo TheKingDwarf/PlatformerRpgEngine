@@ -1,8 +1,4 @@
 /// @description 
-
-// Inherit the parent event
-event_inherited();
-
-hp = 10;
-lastHp = hp;
-
+frame = 15;
+state =0;
+shader = 0;
