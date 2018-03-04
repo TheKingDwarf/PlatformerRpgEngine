@@ -68,7 +68,7 @@ m = 1.6;
 //still needs tweaking
 groundAccel = .7  * m;
 groundFric  = 1.9  * m;
-airAccel    = 0.6 * m;
+airAccel    = 0.55 * m;
 airFric     = 1.9 * m;
 vxMax       = 8.0  * m;
 vyMax       = 14.0 * m;
