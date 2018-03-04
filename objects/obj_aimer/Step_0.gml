@@ -1,7 +1,7 @@
 /// @description 
 accel += 0.5;
 if (accel > 15) accel = 15;
-if (!obj_gameController.kBut1) instance_destroy();
+if ((mouse_check_button_released(mb_left)or gamepad_button_check_released(0,gp_shoulderrb))) instance_destroy();
 if (gamepad_is_connected(0)) {
 	
 	var h = gamepad_axis_value(0, gp_axislh);
@@ -18,5 +18,4 @@ x = mouse_x;
 y = mouse_y;
 	
 }
-clamp(x,obj_camera.x-320,obj_camera.x+320);
-clamp(y,obj_camera.y-180,obj_camera.y+180);
+

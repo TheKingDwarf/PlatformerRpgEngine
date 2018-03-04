@@ -11,16 +11,16 @@ kDown        = keyboard_check(ord("S")) or (gamepad_axis_value(0,gp_axislv)> gam
 kJump        =  keyboard_check_pressed(vk_space) or gamepad_button_check_pressed(0,gp_face1);
 kJumpRelease = keyboard_check_released(vk_space)or gamepad_button_check_released(0,gp_face1);
 
-kBut1		 = keyboard_check(ord("F")) or gamepad_button_check(0,gp_shoulderrb);
+
 kBut2		 = keyboard_check_pressed(ord("1")) or gamepad_button_check_pressed(0, gp_face2);
 kBut3		 = keyboard_check_pressed(ord("3")) or gamepad_button_check_pressed(0, gp_face3);
 kBut4		 = keyboard_check_pressed(ord("2")) or gamepad_button_check_pressed(0, gp_face4);
-
+kBut1		 = mouse_check_button(mb_left) or gamepad_button_check(0,gp_shoulderrb) or kBut2 or kBut3 or kBut4;
 if (kLeft) image_xscale = -1;
 if (kRight) image_xscale = 1;
 if (!obj_gameController.paused) { // if game isnt paused
 	
-	
+		
 	#region // take damage
 	mask_index = spr_player_run;
 	// temporary hp code
@@ -173,6 +173,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 		spell = 0;
 	}
 	if (state = playerStates.casting) {
+		show_debug_message(string(spell))
 		if (!onGround) y -= gravNorm;
 		if (!instance_exists(obj_aimer))instance_create_layer(x,y,"Instances",obj_aimer);
 		
@@ -232,6 +233,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 							
 						}
 					} else {
+						spell = 0;
 						state = playerStates.run;	
 						audio_stop_sound(snd_lightning_player)
 					}
@@ -281,7 +283,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 			}
 			
 		}
-		if (keyboard_check_released(ord("F")) || gamepad_button_check_released(0,gp_shoulderrb)) {
+		if (mouse_check_button_released(mb_left) || gamepad_button_check_released(0,gp_shoulderrb)) {
 			spell = 0;
 			state = playerStates.run;
 			canCast = false;
@@ -296,7 +298,7 @@ if (!obj_gameController.paused) { // if game isnt paused
 	if (state = playerStates.run) {
 		if (onGround) {
 			if (abs(vx)>0) { //if moving
-				if (instance_place(x+vx,y,obj_solid)) { //if running into wall
+				if (instance_place(x+vx,y,par_pushable)) { //if running into wall
 					sprite_index = spr_player_push;
 				} else { //if just running norma
 					sprite_index = spr_player_run;

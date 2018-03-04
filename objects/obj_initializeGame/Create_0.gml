@@ -1,6 +1,6 @@
 /// @description Initalize Game
 
-var volume = false;// set to true for sound
+var volume = true;// set to true for sound
 
 if (!volume) {
 audio_group_set_gain(audiogroup_default,0,0);	

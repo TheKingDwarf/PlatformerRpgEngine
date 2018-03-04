@@ -66,9 +66,9 @@ audio_group_load(audio_player_spells)
 // Multiplier
 m = 1.6;
 //still needs tweaking
-groundAccel = 1.0  * m;
+groundAccel = .7  * m;
 groundFric  = 1.9  * m;
-airAccel    = 0.8 * m;
+airAccel    = 0.6 * m;
 airFric     = 1.9 * m;
 vxMax       = 8.0  * m;
 vyMax       = 14.0 * m;

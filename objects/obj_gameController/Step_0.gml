@@ -20,7 +20,7 @@ kDown        = keyboard_check(ord("S")) or (gamepad_axis_value(0,gp_axislv)> .5)
 kJump        =  keyboard_check_pressed(vk_space) or gamepad_button_check_pressed(0,gp_face1);
 kJumpRelease = keyboard_check_released(vk_space)or gamepad_button_check_released(0,gp_face1);
 
-kBut1		 = keyboard_check(ord("F")) or gamepad_button_check(0,gp_shoulderrb);
+kBut1		 = mouse_check_button(mb_left) or gamepad_button_check(0,gp_shoulderrb);
 kBut2		 = keyboard_check(ord("1")) or gamepad_button_check(0, gp_face2);
 kBut3		 = keyboard_check(ord("2")) or gamepad_button_check(0, gp_face3);
 kBut4		 = keyboard_check(ord("3")) or gamepad_button_check(0, gp_face4);
