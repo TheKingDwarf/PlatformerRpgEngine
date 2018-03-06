@@ -12,6 +12,7 @@ audio_group_set_gain(audiogroup_default,0,0);
 //create control objects
 instance_create_layer(x,y,"Instances",obj_gameController);
 instance_create_layer(x,y,"Instances",obj_audioController);
+instance_create_layer(x,y,"Instances",obj_path_control)
 //play startup sounds/animations
 
 

@@ -49,7 +49,10 @@ targetY = 0;
 current_point = 0;
 next_point = 0;
 
-point_list = ds_list_create();
+
+
+point_list = obj_path_control.path_list[path];
+
 
 // Movement ///////////////////////////////////////////////////////////////////
 
