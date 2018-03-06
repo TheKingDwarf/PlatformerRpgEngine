@@ -28,39 +28,15 @@ if (state = EnemyStates.normal) {
 	//kLeft = keyboard_check(vk_left)
 	//kRight = keyboard_check(vk_right)
 	//kJump = keyboard_check(vk_up)
-	//kJumpRelease = keyboard_che,ck_released(vk_up)
-	if (current_point = undefined) current_point=0;
-	if (current_point > 2*instance_number(par_patrol_point)){
-		if (inPatrol) ds_list_flip(point_list);
-		
-	};
-	//try to find a route between points
-	targetX = ds_list_find_value(point_list,current_point)
-	targetY = ds_list_find_value(point_list,current_point+1);
+	//kJumpRelease = keyboard_check_released(vk_up)
 	
+	//try to find a route between points
+	targetX = point_list[| current_point];
+	targetY = point_list[| current_point+1];
 	//inputs
 	var kRight = false;
 	var kLeft = false;
 	var kJump = false;
-	
-	if (targetX > x){
-		kRight = true;
-		image_xscale = 1;
-	}
-	if (targetX < x) {	
-		image_xscale = -1;	
-		kLeft = true;
-	}
-	if (targetY < y) kJump = true;
-	
-	
-	
-	if (point_distance(x,y,targetX,targetY)<=8)current_point+=2;
-	
-	if (keyboard_check_pressed(vk_left))current_point+=2;
-	
-	if (keyboard_check_pressed(vk_right))current_point-=2;
-	
 	
 	/*
 	net8floz on the discord gave us the concept of laying out control "nodes" throughout the level
@@ -74,13 +50,8 @@ if (state = EnemyStates.normal) {
 	
 	but it's still sounding like the best option
 	
-	CANCEL THAT
-	WE"RE SIMULATING KEY PRESSES LADS
-	AND USING A SHIT LOAD OF PATROL POINTS
 	
 	*/
-	
-	
 	
 	
 	#region state = run
