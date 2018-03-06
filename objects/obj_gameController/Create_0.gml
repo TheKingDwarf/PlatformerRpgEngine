@@ -28,7 +28,7 @@ kBut2= 0;
 kBut3= 0;
 kBut4= 0;
 
-bg_layers = ds_list_create();
+
 
 
 

@@ -22,22 +22,15 @@ shader = 0;
 
 //following are input controls
 //if you want enemy to move left, make inLeft true, etc
-inRight = false;
-inLeft = false;
 inAttack = false;
-inIdle = true;
-inJump = false;
 inDamage = false;
 inTrack = false;//track player
-inPatrol =false;//patrol on given path
+inPatrol =true;//patrol on given path
 image_xscale = -1;
 //enemy dna
-var playerSpeed = 12.8;
-var playerJump = 22.4;
+
 hp = 5;
 damage = 1;
-spd = playerSpeed/2;//need to find out what half of the player speed is, this is what that should be
-jmp = playerJump;
 intell = 5;// between 0-10, determines how well the enemy avoids obstacles/whether or not they track the player
 type = EnemyTypes.Melee;
 canJump = true;
@@ -47,3 +40,40 @@ visionCone = 60; //vision arc, starting from zero
 loot[0] = 1;// loot[0] is for coins
 loot[1] = 1;// loot[1] is for xp
 loot[2] = 0;// loot[2] is for health drops
+
+//patrols
+//list of patrol point objects
+targetX = 0;
+targetY = 0;
+
+current_point = 0;
+next_point = 0;
+
+point_list = ds_list_create();
+
+// Movement ///////////////////////////////////////////////////////////////////
+
+// Multiplier
+m = 1.6;
+//still needs tweaking
+groundAccel = .7  * m;
+groundFric  = 1.9  * m;
+airAccel    = 0.55 * m;
+airFric     = 1.9 * m;
+vxMax       = 8.0  * m;
+vyMax       = 14.0 * m;
+jumpHeight  = 12.0  * m;
+gravNorm    = 0.9  * m;
+gravSlide   = 0.25 * m; 
+
+clingTime   = 4.0 * m;
+canJump = 0;
+
+// Misc ///////////////////////////////////////////////////////////////////////
+
+// Relative collision checks
+cLeft  = place_meeting(x - 1, y, obj_solid);
+cRight = place_meeting(x + 1, y, obj_solid);
+
+// Common calculation
+sqrt2 = sqrt(2);

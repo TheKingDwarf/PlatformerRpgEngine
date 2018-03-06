@@ -29,9 +29,4 @@ kBut4		 = keyboard_check(ord("3")) or gamepad_button_check(0, gp_face4);
 
 var player_vx_clamped = clamp(obj_player.vx,-1,1)
 
-for (var i = 0; i < ds_list_size(bg_layers);i++) {
-	layer_hspeed(bg_layers[| i],(1/(2+i))*obj_player.vx);	
-	layer_x(bg_layers[| i],obj_camera.x);
-	layer_y(bg_layers[| i],obj_camera.y);	
-}
 
