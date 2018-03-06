@@ -1,1 +1,0 @@
-//set_patrol_point(x,y)
