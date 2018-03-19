@@ -1,11 +1,5 @@
 /// @description Initalize Game
 
-var volume = true;// set to true for sound
-
-if (!volume) {
-audio_group_set_gain(audiogroup_default,0,0);	
-	
-}
 //load save file
 //application_surface_draw_enable(false);
 

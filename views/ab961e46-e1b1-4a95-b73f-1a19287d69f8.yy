@@ -10,7 +10,8 @@
         "2f8e4dbe-1c46-49bf-ac2f-c2514dbe6f1b",
         "2b06ab73-b218-458b-a40b-237a04990e88",
         "98e2a8eb-d285-438d-942d-85d6c82cd0d1",
-        "fd8b2a74-b552-4cab-adeb-51d0706b886f"
+        "fd8b2a74-b552-4cab-adeb-51d0706b886f",
+        "12df1d09-1056-4d90-8f13-39f391cc68f4"
     ],
     "filterType": "GMObject",
     "folderName": "controllers\/virtual",

@@ -28,6 +28,18 @@ kBut2= 0;
 kBut3= 0;
 kBut4= 0;
 
+tilemap = noone;
+
+enum navpointTypes {
+	none,	
+	platform,	
+	leftEdge,
+	rightEdge,
+	solo
+}
+
+
+
 
 
 

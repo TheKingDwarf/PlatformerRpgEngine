@@ -135,6 +135,14 @@
             }
         },
         {
+            "Key": "12df1d09-1056-4d90-8f13-39f391cc68f4",
+            "Value": {
+                "id": "7723c77a-e555-4ab3-aad9-ddfdff922b6d",
+                "resourcePath": "objects\\navPoint\\navPoint.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "136c1af4-e592-41bb-b9df-69be043705bd",
             "Value": {
                 "id": "9b7cf368-3273-408b-b8ed-d9f16473c63b",
@@ -271,6 +279,14 @@
             }
         },
         {
+            "Key": "3a1e3c57-89c6-49f9-9d10-42dc51d9654d",
+            "Value": {
+                "id": "5d741389-598e-486e-927d-32587790829f",
+                "resourcePath": "scripts\\generate_navmesh\\generate_navmesh.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3a506255-6ccb-4a54-abfd-56785b02eaca",
             "Value": {
                 "id": "f501acf6-c4ab-4db8-8251-eed493c8b6aa",
@@ -396,6 +412,14 @@
                 "id": "40bf29d0-5903-48a0-a6ba-292e2be91fa1",
                 "resourcePath": "sounds\\snd_explode_player\\snd_explode_player.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "599e05f1-35ed-4970-a8fa-79eefc8577e9",
+            "Value": {
+                "id": "ab02b102-ee60-4a14-bda9-fec33500c13a",
+                "resourcePath": "paths\\path0\\path0.yy",
+                "resourceType": "GMPath"
             }
         },
         {
@@ -839,14 +863,6 @@
             }
         },
         {
-            "Key": "b88ef648-f094-467e-8aee-c7ed4645ab38",
-            "Value": {
-                "id": "be5a1232-0d0c-4782-8810-d0832d5927e7",
-                "resourcePath": "objects\\par_patrol_point\\par_patrol_point.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "bbc338ad-6c83-48b1-89f6-2ab6965f5cc6",
             "Value": {
                 "id": "0aee3f38-980b-4538-afc5-33273137d7bf",
@@ -860,6 +876,14 @@
                 "id": "3058afc4-7473-447f-a391-14ac1f42042d",
                 "resourcePath": "objects\\par_door\\par_door.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c1fd0ba3-6c5f-42a9-8867-58149c421abe",
+            "Value": {
+                "id": "214a8118-a6fc-4f4a-88fd-b8b180a6c39f",
+                "resourcePath": "scripts\\generate_tilemap\\generate_tilemap.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1286,7 +1310,9 @@
         "40065ad9-c511-4866-a08b-210a9c5c490d",
         "5afdccab-1571-405e-bf88-00b95bbed44e",
         "fb676e9d-8784-4264-a0e1-e892f6d1ae37",
-        "027f5899-0260-43cb-b59c-a0907ba0033e"
+        "027f5899-0260-43cb-b59c-a0907ba0033e",
+        "3a1e3c57-89c6-49f9-9d10-42dc51d9654d",
+        "c1fd0ba3-6c5f-42a9-8867-58149c421abe"
     ],
     "tutorial": ""
 }

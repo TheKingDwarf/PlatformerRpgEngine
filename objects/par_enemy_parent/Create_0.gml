@@ -51,7 +51,8 @@ next_point = 0;
 
 
 
-point_list = obj_path_control.path_list[path];
+
+path_start(path,5,path_action_reverse,true);
 
 
 // Movement ///////////////////////////////////////////////////////////////////
