@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description This object stores variables
 platformIndex = none;
 
 type = navpointTypes.none;
@@ -11,4 +10,4 @@ linkRight = noone;//point you can move right to
 
 linkFall = noone;//point you can fall to
 
-LinkJump = noone;//point you can jump to
+jumpLinks = ds_list_create();//we need a whole list of these buggers

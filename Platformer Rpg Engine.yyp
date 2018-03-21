@@ -343,6 +343,14 @@
             }
         },
         {
+            "Key": "45230b8f-82e4-4e4a-98f0-e47e51565dd6",
+            "Value": {
+                "id": "9758a126-f3ad-4737-9f3a-9f4036f6d7eb",
+                "resourcePath": "sprites\\spr_jump_arc\\spr_jump_arc.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4853bf82-fc55-4b90-ae54-ba8cd384a85f",
             "Value": {
                 "id": "7b43ea17-ff54-4729-bb49-10d54801faa0",
@@ -499,6 +507,14 @@
             "Value": {
                 "id": "b6179b80-9eb4-413b-807d-c58b1bfed4da",
                 "resourcePath": "scripts\\instance_create\\instance_create.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6520e025-a073-48c0-b7c8-644f43f2e285",
+            "Value": {
+                "id": "c670f804-eb60-404b-a926-b2d9e2eac86f",
+                "resourcePath": "scripts\\jump_trajectory\\jump_trajectory.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1312,7 +1328,8 @@
         "fb676e9d-8784-4264-a0e1-e892f6d1ae37",
         "027f5899-0260-43cb-b59c-a0907ba0033e",
         "3a1e3c57-89c6-49f9-9d10-42dc51d9654d",
-        "c1fd0ba3-6c5f-42a9-8867-58149c421abe"
+        "c1fd0ba3-6c5f-42a9-8867-58149c421abe",
+        "6520e025-a073-48c0-b7c8-644f43f2e285"
     ],
     "tutorial": ""
 }
