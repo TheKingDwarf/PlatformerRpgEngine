@@ -20,11 +20,9 @@ enum EnemyTypes {
 state = EnemyStates.normal;
 shader = 0;
 
-//following are input controls
-//if you want enemy to move left, make inLeft true, etc
-inAttack = false;
-inDamage = false;
-inTrack = false;//track player
+//these control the path algorithms
+inAttack = false;//make paths to player
+inWander = false;//wander around to random points
 inPatrol =true;//patrol on given path
 image_xscale = -1;
 //enemy dna
@@ -46,13 +44,7 @@ loot[2] = 0;// loot[2] is for health drops
 targetX = 0;
 targetY = 0;
 
-current_point = 0;
-next_point = 0;
-
-
-
-
-path_start(path,5,path_action_reverse,true);
+currentPath = 0;
 
 
 // Movement ///////////////////////////////////////////////////////////////////

@@ -142,7 +142,7 @@ for (var k = 0; k < height;i++) {
 			if (other_point_id != navpointTypes.none) { // test to see it is a platform
 				if(jump_trajectory((k+h)*tileSize,(i+j)*tileSize, object.vxMax, object.vyMax, true, object)) {// calculates the jump trajectory given some vars
 					//if the jump arc is valid, add it to the list
-					point_id.jumpLinks[| ds_list_size(point_id.jumpLinks)+1];//ds_list_size gives the current number, we add one
+					point_id.jumpLinks[| ds_list_size(point_id.jumpLinks)+1] = navmesh[# i+j, k+h];//ds_list_size gives the current number, we add one
 				}
 				
 			}
@@ -156,8 +156,10 @@ for (var k = 0; k < height;i++) {
 for (var i = 0; i < width; i++) //you know the drill here
 for (var k = 0; k < height;i++) {
 	point_id = navmesh[# i, k];
-	if (point_id.type = navpointTypes.none) instance_destroy(point_id);//if the points type is none, it doesnt need to exist
-	
+	if (point_id.type = navpointTypes.none){
+		instance_destroy(point_id);//if the points type is none, it doesnt need to exist
+		navmesh[# i, k] = noone;
+	}
 }
 
 return navmesh; 

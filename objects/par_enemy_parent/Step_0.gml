@@ -24,6 +24,23 @@ if (state = EnemyStates.normal) {
 	inPatrol = false;
 	}
 	#endregion
-
+	#region figure out paths
+	if (inPatrol) {
+		//if path isn't created, make it between our location and start point
+		
+		//if we reach the end of the path, make a new one to endpoint
+		
+		//if we reach the end of that path, make new one to startpoint
+		
+	}
+	if (inAttack) {
+		//every step, make a path to players location
+		
+		
+	}
+	if (inWander) {
+		//make a path to random point	
+	}
+	#endregion
 }
 	//#endregion	

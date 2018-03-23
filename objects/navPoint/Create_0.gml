@@ -1,5 +1,5 @@
 /// @description This object stores variables
-platformIndex = none;
+platformIndex = noone;
 
 type = navpointTypes.none;
 
