@@ -106,29 +106,29 @@ for (var k = 0; i < height; k++) {
 	
 	if (point_id.type != navpointTypes.none) { // if we are on a platform
 		if (navmesh[# i+1, k].type != navpointTypes.none) { //if there is a platform to the right
-			point_id.linkRight	= navmesh[# i+1, k];
+			point_id.links[| ds_list_size(point_id.links)+1]	= navmesh[# i+1, k];
 		} else { // make a fall link
 			var j = 1;
 			while (navmesh[# i+1, k+j] == navpointTypes.none) { // while the fall target is not a collision with the ground, move target lower
 				j++;
 			}
-			point_id.linkFall = navmesh[# i+1, k+j];
+			point_id.links[| ds_list_size(point_id.links)+1]
 		}
 		
 		if (navmesh[# i-1, k].type != navpointTypes.none) { // if there is a platform to the left
-			point_id.linkLeft	= navmesh[# i-1, k];	
+			point_id.links[| ds_list_size(point_id.links)+1]	
 		} else { // make a fall link
 			var j = 1;
 			while (navmesh[# i-1, k+j] == navpointTypes.none) { // while the fall target is not a collision with the ground, move target lower
 				j++;
 			}
-			point_id.linkFall = navmesh[# i-1, k+j];
+			point_id.links[| ds_list_size(point_id.links)+1]
 		}
 	}
 }
 //------------------------------------------------------------------------------------------------
 //make jump trajectories
-var distance_to_check_x = 9;//distance (in tiles) to check in each direction
+var distance_to_check_x = 4;//distance (in tiles) to check in each direction
 var distance_to_check_y = 9;//only will check one direction, up
 var other_point_id = noone;//initalize the variable we will use for our other block
 
@@ -142,7 +142,7 @@ for (var k = 0; k < height;i++) {
 			if (other_point_id != navpointTypes.none) { // test to see it is a platform
 				if(jump_trajectory((k+h)*tileSize,(i+j)*tileSize, object.vxMax, object.vyMax, true, object)) {// calculates the jump trajectory given some vars
 					//if the jump arc is valid, add it to the list
-					point_id.jumpLinks[| ds_list_size(point_id.jumpLinks)+1] = navmesh[# i+j, k+h];//ds_list_size gives the current number, we add one
+					point_id.links[| ds_list_size(point_id.jumpLinks)+1] = navmesh[# i+j, k+h];//ds_list_size gives the current number, we add one
 				}
 				
 			}
@@ -151,7 +151,22 @@ for (var k = 0; k < height;i++) {
 }
 //------------------------------------------------------------------------------------------------
 //cleanup objects and return the navmesh
-
+for (var i = 0; i < width; i++) //we want to get rid of any connections that the character can't fit in
+for (var k = 0; k < height;i++) {
+	point_id = navmesh[# i, k];
+	if (point_id.type != navpointTypes.none){
+		for (var j = 0; j < ds_list_size(point_id.links); j++) {
+			var link_x = point_id.links[| j].x;	
+			var link_y = point_id.links[| j].y;	
+			
+			with (object) { //we use a lot of local vars here which is fine since they're local to the script
+				if (place_meeting(link_x, link_y,obj_solid)){
+					ds_list_delete(point_id.links,j)	
+				}
+			}
+		}
+	}
+}
 //deleting all excess objects since we are done with them
 for (var i = 0; i < width; i++) //you know the drill here
 for (var k = 0; k < height;i++) {

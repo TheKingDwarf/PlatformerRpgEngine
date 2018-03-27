@@ -1,2 +1,2 @@
 /// @description Clean up
-ds_list_destroy(jumpLinks);
+ds_list_destroy(links);

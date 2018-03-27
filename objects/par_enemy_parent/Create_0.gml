@@ -9,7 +9,7 @@ enum EnemyStates { //status effects
 	flying	
 }
 
-enum EnemyTypes {
+enum EnemyTypes { //types
 	Melee,
 	Flying,
 	Miniboss,
