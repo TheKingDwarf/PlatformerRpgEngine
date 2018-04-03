@@ -6,7 +6,7 @@ gml_pragma("forceinline");
 var tile_size = argument0;
 var width	= room_width/tile_size;
 var height	= room_height/tile_size;
-var tilemap_grid = ds_grid_create(width,height);
+var tilemap_grid = ds_grid_create(width+1,height+1);
 show_debug_message(string(width))
 show_debug_message(string(height))
 

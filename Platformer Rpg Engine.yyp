@@ -175,6 +175,14 @@
             }
         },
         {
+            "Key": "24102168-eb00-4798-8771-50f538ec61d5",
+            "Value": {
+                "id": "d34cd66d-9e1c-44b3-9bd0-1f51c946fc4f",
+                "resourcePath": "objects\\debug_ai\\debug_ai.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "2733ab22-caa4-441f-bcd3-be8f697ba64e",
             "Value": {
                 "id": "f864c0f0-f207-4146-b195-aac0c668faf4",

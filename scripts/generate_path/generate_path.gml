@@ -1,8 +1,9 @@
-///generate_path(targetX,targetY,navmesh)
+///generate_path(targetX,targetY,navmesh,list name)
 ///@description makes a path between two points given a navmesh
 ///@param targetX
 ///@param targetY
 ///@param navmesh
+///@param list name
 gml_pragma("forceinline");	// add this here, because we want this script running really quickly
 							//and compiling inline helps the performance slightly
 var targetX = floor(argument0/TILE_SIZE); //where we want to end up
@@ -21,6 +22,8 @@ var startY				= floor(y/TILE_SIZE);
 var currentX			= startX;
 var currentY			= startY;
 
+var best_temp = noone;
+
 var failsafe			= 1000; //emergency break if the while loop goes to long (if it needs a thousand iterations, we probably can't reach the point
 
 while (currentX != targetX and currentY != targetY){
@@ -34,11 +37,13 @@ while (currentX != targetX and currentY != targetY){
 	//add possible points to list
 	i = currentX;
 	k = currentY;
-	current_point_id = navmesh[# i, k]
+	current_point_id = navmesh[# i, k];
+	if (current_point_id = noone) exit;
+	
 	ds_list_copy(points_to_test,current_point_id.links);
 	
 	//test points
-	var best_temp = noone;
+
 	for (var j = 0; j < ds_list_size(points_to_test); j++) { // loop through all points we are testing
 		var other_point_id	= points_to_test[| j];
 		var x_distance		= abs(targetX - current_point_id.x/TILE_SIZE)
@@ -59,6 +64,7 @@ while (currentX != targetX and currentY != targetY){
 	currentX = current_point_id.x/TILE_SIZE;
 	currentY = current_point_id.y/TILE_SIZE;
 }
+if (best_temp != noone)
 ds_list_add(list_of_points_output,best_temp)//add the last point
 
-return list_of_points_output;
+return ds_list_copy(argument3,list_of_points_output);
