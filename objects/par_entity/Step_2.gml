@@ -1,6 +1,7 @@
 /// @description 
 // Vertical
-
+if (draw_xscale != 1) Approach(draw_xscale, 1, .1);
+if (draw_yscale != 1) Approach(draw_yscale, 1, .1);
 vx += knockback;
 vy -= knockup;
 

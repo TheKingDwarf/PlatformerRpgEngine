@@ -1,4 +1,4 @@
-/// @description generate_tilemap(tile_size)
+/*// @description generate_tilemap(tile_size)
 /// @param tile_size
 gml_pragma("forceinline");
 //generates a ds_grid that represents the level. at each point, it measures whether there is a wall object.

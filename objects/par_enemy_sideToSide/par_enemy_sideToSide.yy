@@ -1,28 +1,18 @@
 {
-    "id": "24102168-eb00-4798-8771-50f538ec61d5",
+    "id": "03f63437-c552-4721-af09-288457ec07ba",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "debug_ai",
+    "name": "par_enemy_sideToSide",
     "eventList": [
         {
-            "id": "1faa6a6d-1f12-4d66-8c60-bc87689fa5ac",
+            "id": "8dbb925f-8201-4ec6-8e27-697e61c2f119",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "24102168-eb00-4798-8771-50f538ec61d5"
-        },
-        {
-            "id": "9c5547a4-6803-489e-b387-2d3c7b798e36",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "24102168-eb00-4798-8771-50f538ec61d5"
+            "m_owner": "03f63437-c552-4721-af09-288457ec07ba"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -43,6 +33,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "cb02018a-dbc8-4f47-9d95-8f8b5d3688a7",
+    "spriteId": "4853bf82-fc55-4b90-ae54-ba8cd384a85f",
     "visible": true
 }

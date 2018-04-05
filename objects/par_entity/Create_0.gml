@@ -12,6 +12,8 @@ hp = 1;
 armor = 1;
 combatTimer = 0;
 combatTimerMax = 30;
+draw_xscale = 1;
+draw_yscale = 1;
 
 
 imm_frames = 0;

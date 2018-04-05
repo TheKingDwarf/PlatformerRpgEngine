@@ -1,4 +1,4 @@
-///generate_path(targetX,targetY,navmesh,list name)
+/*//generate_path(targetX,targetY,navmesh,list name)
 ///@description makes a path between two points given a navmesh
 ///@param targetX
 ///@param targetY

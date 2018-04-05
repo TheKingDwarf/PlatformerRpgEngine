@@ -1,4 +1,4 @@
-/// @description generate_navmesh(tilemap, tileSize, object)
+/*// @description generate_navmesh(tilemap, tileSize, object)
 /// @param tilemap
 /// @param tileSize
 /// @param object_testing
@@ -37,7 +37,7 @@ in this form (tilemap[# i (x or width or column),k (y or height or row)])
 this means that we can easily check any adjacent tiles for collisions
 by adding or subtracting from i or k
 
-*/
+
 var actualPlatformIndex = 0;
 var platformStarted = false;
 var point_id = noone;
