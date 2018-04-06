@@ -1,43 +1,33 @@
 {
-    "id": "03f63437-c552-4721-af09-288457ec07ba",
+    "id": "ec5f2313-8fa8-4826-8ed3-d105a16915e0",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "par_enemy_sideToSide",
+    "name": "obj_spawner",
     "eventList": [
         {
-            "id": "8dbb925f-8201-4ec6-8e27-697e61c2f119",
+            "id": "34f28e33-b8ac-467f-b071-f4e348a51b90",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 2,
+            "m_owner": "ec5f2313-8fa8-4826-8ed3-d105a16915e0"
+        },
+        {
+            "id": "d803adf3-e92f-4646-9ac3-2aabe43bb74d",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "03f63437-c552-4721-af09-288457ec07ba"
-        },
-        {
-            "id": "3a868561-a2b2-4827-8a52-4ae4fee79c74",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "03f63437-c552-4721-af09-288457ec07ba"
-        },
-        {
-            "id": "08caef42-0dd3-48d7-b817-a032a929fe57",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 7,
-            "m_owner": "03f63437-c552-4721-af09-288457ec07ba"
+            "m_owner": "ec5f2313-8fa8-4826-8ed3-d105a16915e0"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "b364e5ce-7da9-472b-a95b-0f417570701f",
+    "parentObjectId": "00000000-0000-0000-0000-000000000000",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -53,7 +43,7 @@
     "physicsStartAwake": true,
     "properties": [
         {
-            "id": "867bb3a2-7be5-4a34-aa1a-e9a7ce7e6462",
+            "id": "b6f0603e-1c47-46b9-ad7a-920c915851bd",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,
@@ -62,12 +52,12 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "side_to_side",
-            "varName": "state",
+            "value": "par_enemy_sideToSide",
+            "varName": "object",
             "varType": 0
         },
         {
-            "id": "fb5c3018-54c6-4d0e-b18e-e0458828347b",
+            "id": "6425cc48-4e5d-4e71-9283-9d57a4c7d465",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,
@@ -76,12 +66,12 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "collision_attack",
-            "varName": "attack_type",
+            "value": "-1",
+            "varName": "amount",
             "varType": 0
         },
         {
-            "id": "93910189-dacc-4b86-9791-2727d5f80e29",
+            "id": "c2da15b9-e0f6-4fa7-8d71-6bb28a0a5268",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,
@@ -90,12 +80,12 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
-            "varName": "range",
+            "value": "60",
+            "varName": "max_time",
             "varType": 0
         },
         {
-            "id": "ed2a2666-0a1a-4836-bbac-07e5881996a0",
+            "id": "0c4fb638-68a7-4f6d-a9b8-af631902d4f0",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,
@@ -104,12 +94,12 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
-            "varName": "stayOnPlatform",
-            "varType": 3
+            "value": "15",
+            "varName": "min_time",
+            "varType": 0
         }
     ],
     "solid": false,
-    "spriteId": "4853bf82-fc55-4b90-ae54-ba8cd384a85f",
+    "spriteId": "00000000-0000-0000-0000-000000000000",
     "visible": true
 }

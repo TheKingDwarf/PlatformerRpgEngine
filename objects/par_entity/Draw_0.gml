@@ -8,5 +8,5 @@ if (imm_frames > 0) {
 	}
 	imm_frames--;
 } 
-draw_sprite(sprite_index,image_index,draw_xscale*image_xscale,draw_yscale*image_yscale);
+draw_self();
 shader_reset();

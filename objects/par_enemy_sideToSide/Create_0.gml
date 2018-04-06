@@ -5,17 +5,11 @@
 event_inherited();
 
 hspd	= 0;
-jumpHeight = 2;//blocks
+vspd	= 0;
 accel	= 0.2;
 grav	= 0.3;
 maxHspd = 3;
-maxVspd = 8;
-
-stayOnPlatform	= true; //whether or not the enemy walks off sides of platforms
-jumpAtWalls		= true;
-
-state	= side_to_side();
-
-facing	= 1;
-
-
+maxVspd = 6;
+attack_timer = 0;
+facing	= -1;
+damage = 1;

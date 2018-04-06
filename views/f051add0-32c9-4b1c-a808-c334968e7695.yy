@@ -8,7 +8,8 @@
         "0c56b518-0c4b-4414-a496-26309a9ea680",
         "53876a34-444e-40b1-806a-ea65997a40b2",
         "8ad279af-804e-47b5-81a4-85bbf1f06f60",
-        "03f63437-c552-4721-af09-288457ec07ba"
+        "03f63437-c552-4721-af09-288457ec07ba",
+        "ec5f2313-8fa8-4826-8ed3-d105a16915e0"
     ],
     "filterType": "GMObject",
     "folderName": "enemies\/interactable",

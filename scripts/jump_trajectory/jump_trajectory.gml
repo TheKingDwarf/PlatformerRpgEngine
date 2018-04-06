@@ -21,21 +21,21 @@ if (abs(target_y-y) < maxVy){ // if we are not testing, we are running this in t
 	var d = target_x-x+sprite_width/2;	
 	var h = abs(target_y-y);
 
-	var g = gravNorm;
+	var g = grav;
 
 	var ok = false;
 	while(ok == false) {
-		var vspd = -sqrt(2*g*h)-random_range(0.01, 0.5);//this is the base amount needed to make the jump, plus some random
-		var hspd = d*g/(-vspd + sqrt(vspd*vspd-2*g*h));//the neccesary hspd to stick the landing
+		var _vspd = -sqrt(2*g*h)-random_range(0.01, 0.5);//this is the base amount needed to make the jump, plus some random
+		var _hspd = d*g/(-_vspd + sqrt(_vspd*_vspd-2*g*h));//the neccesary hspd to stick the landing
 	
-		if ((vspd < -sqrt(power(g*sprite_width/(2*hspd), 2) + 2*g*h))) {//makes sure vspd is enough to not clip the platform
+		if ((_vspd < -sqrt(power(g*sprite_width/(2*_hspd), 2) + 2*g*h))) {//makes sure vspd is enough to not clip the platform
 			ok = true;//break loop
 		}
 		
 	}
-	if (hspd <= maxVx) {//if we are within our constraints
-		vx = hspd;//set the values
-		vy = vspd;
+	if (_hspd <= maxVx) {//if we are within our constraints
+		hspd = _hspd;//set the values
+		vspd = _vspd;
 	} else {
 		return false;
 	}

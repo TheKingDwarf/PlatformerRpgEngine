@@ -5,4 +5,4 @@ global.FXlayer = layer_create(-1000);
 
 
 //generate navmesh for enemy type
-
+tilemap = generate_tilemap(16);

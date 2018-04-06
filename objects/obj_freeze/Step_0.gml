@@ -16,6 +16,7 @@ if (coll) {
 	var dam = instance_create_layer(x,y,dam_layer,par_damage);
 	dam.damage = damage;
 	dam.parent = parent;
+	coll.state = EnemyStates.frozen
 	instance_destroy()
 }
 

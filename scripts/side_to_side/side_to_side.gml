@@ -1,20 +1,22 @@
 ///side_to_side()
-
+var onGround = OnGround();
 if (hspd != maxHspd*facing) 
 	hspd = Approach(hspd, maxHspd*facing, accel);
 	
 hCol	= instance_place(x+hspd,y,obj_solid);
 if (hCol) {
-	if (jumpAtWalls) { 
-		var success = jump_trajectory(y + jumpHeight*16, x + hspd, maxHspd, jumpHeight*16);
-		if (!success) facing	= -1*facing;
-	} else {
-		facing	= -1*facing;
-	}	
+	facing	= -facing;
+	hspd = -hspd;
+		
 }
-floorEmpty	= (!instance_place(x+hspd,y+6,obj_solid))
-if (floorEmpty and stayOnPlatform) facing	= facing *-1;
-
+if (!onGround) vspd = Approach(vspd, maxVspd, grav)
+floorEmpty	= (!instance_place(x+hspd,y+2,obj_solid))
+if (floorEmpty and stayOnPlatform) {
+	facing	= -facing;
+	hspd = -hspd;
+}
 image_xscale = facing;
+if (abs(vspd) > maxVspd) vspd = maxVspd * sign(vspd);
+if (abs(hspd) > maxHspd) hspd = maxHspd * sign(hspd);
 vx	= hspd;
 vy	= vspd;
