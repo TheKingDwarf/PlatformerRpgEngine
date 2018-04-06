@@ -8,9 +8,9 @@ void main()
 {
     vec4 OC =  texture2D( gm_BaseTexture, v_vTexcoord );
 
-    float red = 255.0 - OC.r;
-    float green = 255.0 - OC.g;
-    float blue = 255.0 - OC.b;
+    float red = 1.0 - OC.r;
+    float green = 1.0 - OC.g;
+    float blue = 1.0 - OC.b;
     float alpha = OC.a;
 
     vec4 Color = vec4(red,blue,green,alpha);
