@@ -16,7 +16,6 @@ if (floorEmpty and stayOnPlatform) {
 	hspd = -hspd;
 }
 image_xscale = facing;
-if (abs(vspd) > maxVspd) vspd = maxVspd * sign(vspd);
-if (abs(hspd) > maxHspd) hspd = maxHspd * sign(hspd);
+script_execute(attack_type);
 vx	= hspd;
 vy	= vspd;
