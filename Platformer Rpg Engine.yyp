@@ -103,6 +103,14 @@
             }
         },
         {
+            "Key": "0d033471-eb38-4059-96e8-e722741a0dc4",
+            "Value": {
+                "id": "c253af15-828d-471f-a1d3-eb874b671f06",
+                "resourcePath": "objects\\obj_pop_up_trap\\obj_pop_up_trap.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0d60d36a-a541-4f53-9e3a-23bd0ac5030a",
             "Value": {
                 "id": "c4ec1391-4de0-4231-9d71-7caa41a33c80",
@@ -972,6 +980,14 @@
                 "id": "a14c0ac8-a58e-48c8-a6c9-87afd40dbecc",
                 "resourcePath": "views\\a6330d21-533b-427c-bc87-67074e3c6d19-room.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c50179c1-a9a2-4f1a-8eca-1ed3a8ca1e0c",
+            "Value": {
+                "id": "ebdaef80-4ef0-444f-8e90-22d6dd429141",
+                "resourcePath": "datafiles_yy\\imguigml-v1.81.0.yymp.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
